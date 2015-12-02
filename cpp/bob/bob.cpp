@@ -13,10 +13,14 @@ bool is_shouting(const string& s) {
     return was_upper && !was_lower;
 }
 
+bool is_question(const string& s) {
+    return s[s.length() - 1] == '?';
+}
+
 const string bob::hey(const string& msg) {
     if (is_shouting(msg))
         return "Whoa, chill out!";
-    if (msg == "Does this cryogenic chamber make me look fat?")
+    if (is_question(msg))
         return "Sure.";
     return "Whatever.";
 }
