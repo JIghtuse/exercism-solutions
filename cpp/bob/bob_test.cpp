@@ -7,12 +7,12 @@ BOOST_AUTO_TEST_CASE(stating_something)
     BOOST_REQUIRE_EQUAL("Whatever.", bob::hey("Tom-ay-to, tom-aaaah-to."));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(shouting)
 {
     BOOST_REQUIRE_EQUAL("Whoa, chill out!", bob::hey("WATCH OUT!"));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(asking_a_question)
 {
     BOOST_REQUIRE_EQUAL("Sure.", bob::hey("Does this cryogenic chamber make me look fat?"));
