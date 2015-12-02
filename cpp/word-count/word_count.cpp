@@ -8,7 +8,7 @@ map<string, int> word_count::words(const string& text) {
 
     string word;
     for (istringstream iss{text}; iss >> word;) {
-        result[word] = 1;
+        result[word] += 1;
     }
 
     return result;
