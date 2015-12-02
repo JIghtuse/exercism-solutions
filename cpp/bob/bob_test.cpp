@@ -47,7 +47,6 @@ BOOST_AUTO_TEST_CASE(question_with_only_numbers)
     BOOST_REQUIRE_EQUAL("Sure.", bob::hey("4?"));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(shouting_with_special_characters)
 {
     BOOST_REQUIRE_EQUAL("Whoa, chill out!", bob::hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"));
@@ -68,6 +67,7 @@ BOOST_AUTO_TEST_CASE(prattling_on)
     BOOST_REQUIRE_EQUAL("Sure.", bob::hey("Wait! Hang on.  Are you going to be OK?"));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(question_with_trailing_whitespace)
 {
     BOOST_REQUIRE_EQUAL("Sure.", bob::hey("Are you ok? "));
