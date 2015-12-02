@@ -37,12 +37,12 @@ BOOST_AUTO_TEST_CASE(shouting_numbers)
     BOOST_REQUIRE_EQUAL("Whoa, chill out!", bob::hey("1, 2, 3 GO!"));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(only_numbers)
 {
     BOOST_REQUIRE_EQUAL("Whatever.", bob::hey("1, 2, 3"));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(question_with_only_numbers)
 {
     BOOST_REQUIRE_EQUAL("Sure.", bob::hey("4?"));
