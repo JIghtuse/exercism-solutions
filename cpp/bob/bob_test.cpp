@@ -27,12 +27,12 @@ BOOST_AUTO_TEST_CASE(using_acronyms_in_regular_speech)
     BOOST_REQUIRE_EQUAL("Whatever.", bob::hey("It's OK if you don't want to go to the DMV."));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(forceful_questions)
 {
     BOOST_REQUIRE_EQUAL("Whoa, chill out!", bob::hey("WHAT THE HELL WERE YOU THINKING?"));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(shouting_numbers)
 {
     BOOST_REQUIRE_EQUAL("Whoa, chill out!", bob::hey("1, 2, 3 GO!"));
