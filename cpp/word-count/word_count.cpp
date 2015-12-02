@@ -1,7 +1,15 @@
 #include "word_count.h"
+#include <sstream>
 
 using namespace std;
 
 map<string, int> word_count::words(const string& text) {
-    return map<string, int>{{text, 1}};
+    map<string, int> result;
+
+    string word;
+    for (istringstream iss{text}; iss >> word;) {
+        result[word] = 1;
+    }
+
+    return result;
 }

@@ -30,7 +30,6 @@ BOOST_AUTO_TEST_CASE(counts_one_word)
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(counts_one_of_each)
 {
     const map<string, int> expected{{"one", 1}, {"of", 1}, {"each", 1}};
@@ -40,6 +39,7 @@ BOOST_AUTO_TEST_CASE(counts_one_of_each)
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(counts_multiple_occurrences)
 {
     const map<string, int> expected{{"one", 1}, {"fish", 4}, {"two", 1}, {"red", 1}, {"blue", 1}};
