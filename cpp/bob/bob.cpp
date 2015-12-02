@@ -17,7 +17,16 @@ bool is_question(const string& s) {
     return s[s.length() - 1] == '?';
 }
 
-const string bob::hey(const string& msg) {
+string rtrim(const string& s) {
+    ssize_t pos = s.length() - 1;
+
+    while (pos >= 0 && isspace(s[pos]))
+        --pos;
+    return s.substr(0, pos + 1);
+}
+
+const string bob::hey(const string& s) {
+    string msg = rtrim(s);
     if (is_shouting(msg))
         return "Whoa, chill out!";
     if (is_question(msg))
