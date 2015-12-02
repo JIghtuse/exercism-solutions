@@ -72,12 +72,12 @@ BOOST_AUTO_TEST_CASE(question_with_trailing_whitespace)
     BOOST_REQUIRE_EQUAL("Sure.", bob::hey("Are you ok? "));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(silence)
 {
     BOOST_REQUIRE_EQUAL("Fine. Be that way!", bob::hey(""));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(prolonged_silence)
 {
     BOOST_REQUIRE_EQUAL("Fine. Be that way!", bob::hey("   "));

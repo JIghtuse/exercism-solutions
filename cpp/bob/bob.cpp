@@ -31,5 +31,7 @@ const string bob::hey(const string& s) {
         return "Whoa, chill out!";
     if (is_question(msg))
         return "Sure.";
+    if (msg.empty())
+        return "Fine. Be that way!";
     return "Whatever.";
 }
