@@ -8,7 +8,6 @@ fn test_no_matches() {
 }
 
 #[test]
-#[ignore]
 fn test_detect_simple_anagram() {
     let inputs = ["tan", "stand", "at"];
     let outputs: Vec<&str> = vec!["tan"];
