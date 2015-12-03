@@ -70,7 +70,6 @@ fn test_misleading_unicode_anagrams() {
 }
 
 #[test]
-#[ignore]
 fn test_does_not_detect_a_word_as_its_own_anagram() {
     let inputs = ["banana"];
     let outputs: Vec<&str> = vec![];
