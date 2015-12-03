@@ -12,7 +12,7 @@ bool is_shouting(const string& s) {
 }
 
 bool is_question(const string& s) {
-    return s[s.length() - 1] == '?';
+    return s.back() == '?';
 }
 
 const string bob::hey(const string& s) {
