@@ -1,21 +1,16 @@
-fn is_anagram(word_chars: &Vec<char>, input: &str) -> bool {
-    let mut chars : Vec<char> = input.chars().collect();
-    chars.sort();
+fn is_anagram(a: &str, b: &str) -> bool {
+    let mut chars_a : Vec<char> = a.chars().collect();
+    chars_a.sort();
 
-    *word_chars == chars
+    let mut chars_b : Vec<char> = b.chars().collect();
+    chars_b.sort();
+
+    *chars_a == *chars_b
 }
 
 pub fn anagrams_for<'a>(word: &str, inputs: &'a [&'a str]) -> Vec<&'a str> {
-    let mut res = vec![];
-
-    let mut word_chars : Vec<char> = word.chars().collect();
-    word_chars.sort();
-    let word_chars = word_chars;
-
-    for input in inputs {
-        if is_anagram(&word_chars, input) {
-            res.push(*input);
-        }
-    }
-    res
+    inputs.into_iter()
+          .filter(|x| is_anagram(word, x))
+          .map(|x| *x)
+          .collect::<Vec<&str>>()
 }
