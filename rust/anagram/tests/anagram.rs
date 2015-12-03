@@ -46,7 +46,6 @@ fn test_multiple_anagrams() {
 }
 
 #[test]
-#[ignore]
 fn test_case_insensitive_anagrams() {
     let inputs = ["cashregister", "Carthorse", "radishes"];
     let outputs: Vec<&str> = vec!["Carthorse"];

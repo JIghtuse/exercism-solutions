@@ -1,8 +1,8 @@
 fn is_anagram(a: &str, b: &str) -> bool {
-    let mut chars_a : Vec<char> = a.chars().collect();
+    let mut chars_a : Vec<char> = a.to_lowercase().chars().collect();
     chars_a.sort();
 
-    let mut chars_b : Vec<char> = b.chars().collect();
+    let mut chars_b : Vec<char> = b.to_lowercase().chars().collect();
     chars_b.sort();
 
     *chars_a == *chars_b
