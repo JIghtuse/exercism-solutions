@@ -53,7 +53,6 @@ fn test_case_insensitive_anagrams() {
 }
 
 #[test]
-#[ignore]
 fn test_unicode_anagrams() {
     // These words don't make sense, they're just greek letters cobbled together.
     let inputs = ["ΒΓΑ", "ΒΓΔ", "γβα"];
@@ -62,7 +61,6 @@ fn test_unicode_anagrams() {
 }
 
 #[test]
-#[ignore]
 fn test_misleading_unicode_anagrams() {
     // Despite what a human might think these words different letters, the input uses Greek A and B
     // while the list of potential anagrams uses Latin A and B.
