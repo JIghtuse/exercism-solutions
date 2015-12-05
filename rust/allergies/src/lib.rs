@@ -13,8 +13,8 @@ pub enum Allergen {
 pub struct Allergies(pub usize);
 
 impl Allergies {
-    pub fn is_allergic_to(&self, allergen: &Allergen) -> bool {
-        allergen == &Allergen::Eggs
+    pub fn is_allergic_to(&self, allergen: Allergen) -> bool {
+        allergen as usize & self.0 != 0
     }
     pub fn allergies(&self) -> Vec<Allergen> {
         vec![]
