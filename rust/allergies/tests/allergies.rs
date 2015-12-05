@@ -5,22 +5,22 @@ use allergies::*;
 #[test]
 fn test_no_allergies_means_not_allergic() {
     let allergies = Allergies(0);
-    assert_eq!(false, allergies.is_allergic_to(Allergen::Peanuts));
-    assert_eq!(false, allergies.is_allergic_to(Allergen::Cats));
-    assert_eq!(false, allergies.is_allergic_to(Allergen::Strawberries));
+    assert_eq!(false, allergies.is_allergic_to(&Allergen::Peanuts));
+    assert_eq!(false, allergies.is_allergic_to(&Allergen::Cats));
+    assert_eq!(false, allergies.is_allergic_to(&Allergen::Strawberries));
 }
 
 #[test]
 fn test_is_allergic_to_eggs() {
-    assert_eq!(true, Allergies(1).is_allergic_to(Allergen::Eggs));
+    assert_eq!(true, Allergies(1).is_allergic_to(&Allergen::Eggs));
 }
 
 #[test]
 fn test_has_the_right_allergies() {
     let allergies = Allergies(5);
-    assert_eq!(true, allergies.is_allergic_to(Allergen::Eggs));
-    assert_eq!(true, allergies.is_allergic_to(Allergen::Shellfish));
-    assert_eq!(false, allergies.is_allergic_to(Allergen::Strawberries));
+    assert_eq!(true, allergies.is_allergic_to(&Allergen::Eggs));
+    assert_eq!(true, allergies.is_allergic_to(&Allergen::Shellfish));
+    assert_eq!(false, allergies.is_allergic_to(&Allergen::Strawberries));
 }
 
 #[test]
