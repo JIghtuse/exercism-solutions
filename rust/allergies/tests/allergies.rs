@@ -29,7 +29,6 @@ fn test_no_allergies_at_all() {
 }
 
 #[test]
-#[ignore]
 fn test_just_to_peanuts() {
     assert_eq!(vec![Allergen::Peanuts], Allergies(2).allergies());
 }
