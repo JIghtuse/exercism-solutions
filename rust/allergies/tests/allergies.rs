@@ -34,7 +34,6 @@ fn test_just_to_peanuts() {
 }
 
 #[test]
-#[ignore]
 fn test_allergic_to_everything() {
     assert_eq!(vec![Allergen::Eggs, Allergen::Peanuts, Allergen::Shellfish,
                     Allergen::Strawberries, Allergen::Tomatoes, Allergen::Chocolate,
@@ -43,7 +42,6 @@ fn test_allergic_to_everything() {
 }
 
 #[test]
-#[ignore]
 fn test_ignore_non_allergen_score_parts() {
     assert_eq!(vec![Allergen::Eggs], Allergies(257).allergies());
 }
