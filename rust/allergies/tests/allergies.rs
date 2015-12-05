@@ -11,7 +11,6 @@ fn test_no_allergies_means_not_allergic() {
 }
 
 #[test]
-#[ignore]
 fn test_is_allergic_to_eggs() {
     assert_eq!(true, Allergies(1).is_allergic_to(&Allergen::Eggs));
 }

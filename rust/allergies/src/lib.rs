@@ -1,4 +1,4 @@
-#[derive(Debug, Eq, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub enum Allergen {
     Eggs = 1,
     Peanuts = 2,
@@ -13,8 +13,8 @@ pub enum Allergen {
 pub struct Allergies(pub usize);
 
 impl Allergies {
-    pub fn is_allergic_to(&self, _: &Allergen) -> bool {
-        false
+    pub fn is_allergic_to(&self, allergen: &Allergen) -> bool {
+        allergen == &Allergen::Eggs
     }
     pub fn allergies(&self) -> Vec<Allergen> {
         vec![]
