@@ -27,7 +27,6 @@ fn test_count_one_word() {
 }
 
 #[test]
-#[ignore]
 fn test_count_one_of_each() {
     check_word_count(
         "one of each",
