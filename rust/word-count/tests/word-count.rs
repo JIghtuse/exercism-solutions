@@ -74,7 +74,6 @@ fn test_normalize_case() {
 }
 
 #[test]
-#[ignore]
 fn test_prefix_punctuation() {
     check_word_count(
         "!%%#testing, 1, 2 testing",
