@@ -36,7 +36,6 @@ fn test_count_one_of_each() {
 }
 
 #[test]
-#[ignore]
 fn test_count_multiple_occurrences() {
     check_word_count(
         "one fish two fish red fish blue fish",
