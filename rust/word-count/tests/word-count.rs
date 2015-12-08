@@ -83,7 +83,6 @@ fn test_prefix_punctuation() {
 }
 
 #[test]
-#[ignore]
 fn test_symbols_are_separators() {
     check_word_count(
         "hey,my_spacebar_is_broken.",
