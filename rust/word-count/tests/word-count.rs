@@ -67,7 +67,6 @@ fn test_include_numbers() {
 }
 
 #[test]
-#[ignore]
 fn test_normalize_case() {
     check_word_count(
         "go Go GO",
