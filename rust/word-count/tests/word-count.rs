@@ -47,7 +47,6 @@ fn test_count_multiple_occurrences() {
 }
 
 #[test]
-#[ignore]
 fn test_ignore_punctuation() {
     check_word_count(
         "car : carpet as java : javascript!!&@$%^&",
