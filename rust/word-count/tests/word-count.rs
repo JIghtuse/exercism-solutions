@@ -58,7 +58,6 @@ fn test_ignore_punctuation() {
 }
 
 #[test]
-#[ignore]
 fn test_include_numbers() {
     check_word_count(
         "testing, 1, 2 testing",
