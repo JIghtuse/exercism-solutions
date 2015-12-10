@@ -16,13 +16,11 @@ fn test_complete_hamming_distance_in_small_strand() {
 }
 
 #[test]
-#[ignore]
 fn test_small_hamming_distance_in_the_middle_somewhere() {
     assert_eq!(dna::hamming_distance("GGACG", "GGTCG").unwrap(), 1);
 }
 
 #[test]
-#[ignore]
 fn test_larger_distance() {
     assert_eq!(dna::hamming_distance("ACCAGGG", "ACTATGG").unwrap(), 2);
 }
