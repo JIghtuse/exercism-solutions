@@ -117,7 +117,6 @@ BOOST_AUTO_TEST_CASE(with_apostrophes)
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(with_free_standing_apostrophes)
 {
     const map<string, int> expected{{ "go", 3 }};
@@ -133,4 +132,6 @@ BOOST_AUTO_TEST_CASE(with_apostrophes_as_quotes)
 
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
+//
 #endif
