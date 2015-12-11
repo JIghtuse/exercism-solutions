@@ -4,5 +4,9 @@ using namespace std;
 
 size_t hamming::compute(const string& a, const string& b)
 {
-    return a[0] != b[0];
+    size_t distance = 0;
+    for (string::size_type i = 0; i < a.length(); ++i)
+        if (a[i] != b[i])
+            ++distance;
+    return distance;
 }
