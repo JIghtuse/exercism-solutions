@@ -57,7 +57,6 @@ BOOST_AUTO_TEST_CASE(ignores_punctuation)
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(includes_numbers)
 {
     const map<string, int> expected{{"testing", 2}, {"1", 1}, {"2", 1}};
@@ -67,6 +66,7 @@ BOOST_AUTO_TEST_CASE(includes_numbers)
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(normalizes_case)
 {
     const map<string, int> expected{{"go", 3}};
