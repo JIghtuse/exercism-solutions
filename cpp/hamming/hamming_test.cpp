@@ -18,7 +18,6 @@ BOOST_AUTO_TEST_CASE(complete_hamming_distance_for_small_strand)
     BOOST_REQUIRE_EQUAL(2, hamming::compute("AG", "CT"));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(small_hamming_distance)
 {
     BOOST_REQUIRE_EQUAL(1, hamming::compute("AT", "CT"));
@@ -29,6 +28,7 @@ BOOST_AUTO_TEST_CASE(small_hamming_distance_in_longer_strand)
     BOOST_REQUIRE_EQUAL(1, hamming::compute("GGACG", "GGTCG"));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(domain_error_when_first_string_is_longer)
 {
     BOOST_REQUIRE_THROW(hamming::compute("AAAG", "AAA"), std::domain_error);
