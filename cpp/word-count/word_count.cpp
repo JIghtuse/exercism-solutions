@@ -14,7 +14,9 @@ map<string, int> word_count::words(const string& text) {
     for (sp_iter it = make_split_iterator(s, token_finder(terminator, token_compress_on));
          it != sp_iter{};
          ++it) {
-        result[boost::copy_range<string>(*it)] += 1;
+        auto key = boost::copy_range<string>(*it);
+        to_lower(key);
+        result[key] += 1;
     }
 
     return result;

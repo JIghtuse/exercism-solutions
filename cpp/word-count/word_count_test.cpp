@@ -66,7 +66,6 @@ BOOST_AUTO_TEST_CASE(includes_numbers)
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(normalizes_case)
 {
     const map<string, int> expected{{"go", 3}};
@@ -76,6 +75,7 @@ BOOST_AUTO_TEST_CASE(normalizes_case)
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(counts_constructor)
 {
     const map<string, int> expected{{"constructor", 2}};
