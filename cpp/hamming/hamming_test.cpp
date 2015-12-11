@@ -33,7 +33,6 @@ BOOST_AUTO_TEST_CASE(domain_error_when_first_string_is_longer)
     BOOST_REQUIRE_THROW(hamming::compute("AAAG", "AAA"), std::domain_error);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(domain_error_when_second_string_is_longer)
 {
     BOOST_REQUIRE_THROW(hamming::compute("AAA", "AAAG"), std::domain_error);
@@ -48,4 +47,6 @@ BOOST_AUTO_TEST_CASE(hamming_distance_in_very_long_strand)
 {
     BOOST_REQUIRE_EQUAL(9, hamming::compute("GGACGGATTCTG", "AGGACGGATTCT"));
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
+//
 #endif
