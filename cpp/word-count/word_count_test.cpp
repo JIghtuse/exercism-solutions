@@ -109,7 +109,6 @@ BOOST_AUTO_TEST_CASE(handles_cramped_list)
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(with_apostrophes)
 {
     const map<string, int> expected{{"first", 1}, {"don't", 2}, {"laugh", 1}, {"then", 1}, {"cry", 1}};
@@ -118,6 +117,7 @@ BOOST_AUTO_TEST_CASE(with_apostrophes)
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(with_free_standing_apostrophes)
 {
     const map<string, int> expected{{ "go", 3 }};
