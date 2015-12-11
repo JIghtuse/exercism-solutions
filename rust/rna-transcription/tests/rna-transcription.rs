@@ -7,7 +7,6 @@ fn test_acid_equals_acid() {
 }
 
 #[test]
-#[ignore]
 fn test_transcribes_cytosine_guanine() {
     assert_eq!(dna::RibonucleicAcid::new("G"), dna::DeoxyribonucleicAcid::new("C").to_rna());
 }

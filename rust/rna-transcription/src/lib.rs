@@ -1,28 +1,34 @@
 #[derive(Debug,PartialEq)]
-pub struct RibonucleicAcid<'a> {
-    strand: &'a str,
+pub struct RibonucleicAcid {
+    strand: String,
 }
 
-impl<'a> RibonucleicAcid<'a> {
+impl RibonucleicAcid {
     pub fn new(strand: &str) -> RibonucleicAcid {
-        RibonucleicAcid { strand: strand }
+        RibonucleicAcid { strand: strand.to_owned() }
     }
     pub fn as_ref(&self) -> &str {
-        self.strand
+        self.strand.as_ref()
     }
 }
 
 #[derive(Debug,PartialEq)]
-pub struct DeoxyribonucleicAcid<'a> {
-    strand: &'a str,
+pub struct DeoxyribonucleicAcid {
+    strand: String,
 }
 
-impl<'a> DeoxyribonucleicAcid<'a> {
+impl DeoxyribonucleicAcid {
     pub fn new(strand: &str) -> DeoxyribonucleicAcid {
-        DeoxyribonucleicAcid { strand: strand }
+        DeoxyribonucleicAcid { strand: strand.to_owned() }
     }
 
     pub fn to_rna(&self) -> RibonucleicAcid {
-        RibonucleicAcid { strand: self.strand }
+        RibonucleicAcid {
+            strand: self.strand
+                        .replace("G", "C")
+                        .replace("C", "G")
+                        .replace("T", "A")
+                        .replace("A", "U")
+        }
     }
 }
