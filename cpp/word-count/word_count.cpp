@@ -15,11 +15,11 @@ map<string, int> word_count::words(const string& text)
     for (sp_iter it = make_split_iterator(text, token_finder(terminator, token_compress_on));
          it != sp_iter{};
          ++it) {
-        auto key = boost::copy_range<string>(*it);
-        trim_if(key, !is_alnum());
-        to_lower(key);
-        if (!key.empty())
-            result[key] += 1;
+        auto word = boost::copy_range<string>(*it);
+        trim_if(word, !is_alnum());
+        to_lower(word);
+        if (!word.empty())
+            result[word] += 1;
     }
 
     return result;
