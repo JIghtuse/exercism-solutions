@@ -1,6 +1,5 @@
 #include "word_count.h"
 #include <boost/algorithm/string.hpp>
-#include <boost/algorithm/cxx11/one_of.hpp>
 
 using namespace boost::algorithm;
 using namespace std;
