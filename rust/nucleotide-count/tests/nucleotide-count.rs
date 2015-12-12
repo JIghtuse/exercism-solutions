@@ -31,7 +31,6 @@ fn test_count_only_thymine() {
 }
 
 #[test]
-#[ignore]
 fn test_nucleotide_count_empty() {
     check_dna(
         "",
