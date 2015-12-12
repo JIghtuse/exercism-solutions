@@ -13,7 +13,6 @@ BOOST_AUTO_TEST_CASE(no_matches)
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), matches.begin(), matches.end());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(detects_simple_anagram)
 {
     auto subject = anagram::anagram("ant");
@@ -23,6 +22,7 @@ BOOST_AUTO_TEST_CASE(detects_simple_anagram)
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), matches.begin(), matches.end());
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(does_not_detect_false_positives)
 {
     auto subject = anagram::anagram("galea");
