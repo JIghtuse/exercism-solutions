@@ -38,7 +38,6 @@ fn test_nucleotide_count_empty() {
 }
 
 #[test]
-#[ignore]
 fn test_nucleotide_count_only_guanine() {
     check_dna(
         "GGGGGGGG",
@@ -46,7 +45,6 @@ fn test_nucleotide_count_only_guanine() {
 }
 
 #[test]
-#[ignore]
 fn test_nucleotide_count_counts_all() {
     check_dna(
         "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAA\
