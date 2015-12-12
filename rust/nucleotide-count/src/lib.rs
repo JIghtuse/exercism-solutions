@@ -5,7 +5,7 @@ const DNA_NUCLEOTIDS: [char; 4] = ['G', 'C', 'T', 'A'];
 pub fn count<S>(needle: char, strand: S) -> usize
     where S: Into<String>
 {
-    strand.into().chars().filter(|&c| c == needle).count()
+    strand.into().matches(needle).count()
 }
 
 pub fn nucleotide_counts<S>(strand: S) -> HashMap<char, usize>
