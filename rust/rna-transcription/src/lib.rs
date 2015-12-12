@@ -2,18 +2,18 @@ use std::mem;
 
 #[derive(Debug,PartialEq)]
 enum DnaNucleotide {
-    G = 71,
-    C = 67,
-    T = 84,
     A = 65,
+    C = 67,
+    G = 71,
+    T = 84,
 }
 
 #[derive(Debug,PartialEq)]
 enum RnaNucleotide {
-    G = 71,
-    C = 67,
-    U = 85,
     A = 65,
+    C = 67,
+    G = 71,
+    U = 85,
 }
 
 #[derive(Debug,PartialEq)]
@@ -23,6 +23,12 @@ pub struct RibonucleicAcid {
 
 impl From<String> for RibonucleicAcid {
     fn from(s: String) -> RibonucleicAcid {
+        for (i, c) in s.bytes().enumerate() {
+            match c {
+                65 | 67 | 71 | 85 => {}
+                _ => panic!("Incorrect nucleotide at position {}", i),
+            }
+        }
         RibonucleicAcid { strand: unsafe { mem::transmute(s.into_bytes()) } }
     }
 }
@@ -35,7 +41,7 @@ impl Into<String> for RibonucleicAcid {
 
 impl AsRef<str> for RibonucleicAcid {
     fn as_ref(&self) -> &str {
-        unsafe { mem::transmute(&self.strand[..]) }
+        unsafe { ::std::str::from_utf8_unchecked(mem::transmute(&self.strand[..])) }
     }
 }
 
@@ -54,6 +60,12 @@ pub struct DeoxyribonucleicAcid {
 
 impl From<String> for DeoxyribonucleicAcid {
     fn from(s: String) -> DeoxyribonucleicAcid {
+        for (i, c) in s.bytes().enumerate() {
+            match c {
+                65 | 67 | 71 | 84 => {}
+                _ => panic!("Incorrect nucleotide at position {}", i),
+            }
+        }
         DeoxyribonucleicAcid { strand: unsafe { mem::transmute(s.into_bytes()) } }
     }
 }
@@ -66,7 +78,7 @@ impl Into<String> for DeoxyribonucleicAcid {
 
 impl AsRef<str> for DeoxyribonucleicAcid {
     fn as_ref(&self) -> &str {
-        unsafe { mem::transmute(&self.strand[..]) }
+        unsafe { ::std::str::from_utf8_unchecked(mem::transmute(&self.strand[..])) }
     }
 }
 
@@ -78,7 +90,17 @@ impl DeoxyribonucleicAcid {
     }
 
     pub fn to_rna(&self) -> RibonucleicAcid {
-        let s = self.as_ref().to_owned();
-        RibonucleicAcid::from(s)
+        let rna_strand = self.strand
+                             .iter()
+                             .map(|ref n| {
+                                 match **n {
+                                     DnaNucleotide::G => RnaNucleotide::C,
+                                     DnaNucleotide::C => RnaNucleotide::G,
+                                     DnaNucleotide::T => RnaNucleotide::A,
+                                     DnaNucleotide::A => RnaNucleotide::U,
+                                 }
+                             })
+                             .collect();
+        RibonucleicAcid { strand: rna_strand }
     }
 }
