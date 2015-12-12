@@ -21,7 +21,6 @@ fn test_count_empty() {
 }
 
 #[test]
-#[ignore]
 fn test_count_repetitive_cytosine() {
     assert_eq!(dna::count('C', "CCCCC"), 5);
 }
