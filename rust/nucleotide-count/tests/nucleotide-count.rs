@@ -26,7 +26,6 @@ fn test_count_repetitive_cytosine() {
 }
 
 #[test]
-#[ignore]
 fn test_count_only_thymine() {
     assert_eq!(dna::count('T', "GGGGGTAACCCGG"), 1);
 }
