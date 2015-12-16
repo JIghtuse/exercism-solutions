@@ -10,7 +10,7 @@ namespace anagram {
 vector<char> sorted_chars(const string& s) {
     vector<char> chars(s.length());
     for (char c : s)
-        chars.push_back(c);
+        chars.push_back(tolower(c));
     sort(chars.begin(), chars.end());
     return chars;
 }

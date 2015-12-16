@@ -67,7 +67,6 @@ BOOST_AUTO_TEST_CASE(detects_multiple_anagrams2)
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), matches.begin(), matches.end());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(detects_anagrams_case_insensitively)
 {
     auto subject = anagram::anagram("Orchestra");
@@ -77,6 +76,7 @@ BOOST_AUTO_TEST_CASE(detects_anagrams_case_insensitively)
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), matches.begin(), matches.end());
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(does_not_detect_a_word_as_its_own_anagram)
 {
     auto subject = anagram::anagram("banana");
