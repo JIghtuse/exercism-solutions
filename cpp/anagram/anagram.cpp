@@ -1,25 +1,32 @@
 #include "anagram.h"
 #include <algorithm>
-#include <iostream>
 #include <vector>
 
 using namespace std;
 
 namespace anagram {
 
-vector<char> sorted_chars(const string& s) {
-    vector<char> chars(s.length());
-    for (char c : s)
-        chars.push_back(tolower(c));
-    sort(chars.begin(), chars.end());
-    return chars;
+string to_lower(const string& s)
+{
+    string smod{ s };
+    transform(smod.begin(), smod.end(), smod.begin(), ::tolower);
+    return smod;
 }
 
-bool is_anagram(const string& a, const string& b) {
-    if (a.length() != b.length())
+bool is_anagram(const string& word, const string& input)
+{
+    if (word.length() != input.length())
         return false;
 
-    return sorted_chars(a) == sorted_chars(b);
+    auto word_lower = to_lower(word);
+    auto input_lower = to_lower(input);
+
+    if (word_lower == input_lower)
+        return false; // word is not an anagram to itself
+
+    sort(word_lower.begin(), word_lower.end());
+    sort(input_lower.begin(), input_lower.end());
+    return word_lower == input_lower;
 }
 
 vector<string> anagram::matches(const initializer_list<const string> inputs)
@@ -30,5 +37,4 @@ vector<string> anagram::matches(const initializer_list<const string> inputs)
             res.push_back(input);
     return res;
 }
-
 }

@@ -17,6 +17,6 @@ public:
     std::vector<std::string> matches(const std::initializer_list<const std::string>);
 
 private:
-    std::string word;
+    const std::string word;
 };
 };
