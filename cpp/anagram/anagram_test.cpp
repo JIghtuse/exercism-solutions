@@ -85,7 +85,6 @@ BOOST_AUTO_TEST_CASE(does_not_detect_a_word_as_its_own_anagram)
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), matches.begin(), matches.end());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(matches_accepts_string_arguments)
 {
     auto subject = anagram::anagram("ant");
@@ -94,4 +93,5 @@ BOOST_AUTO_TEST_CASE(matches_accepts_string_arguments)
 
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), matches.begin(), matches.end());
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif
