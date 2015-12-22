@@ -7,7 +7,6 @@ fn test_methionine() {
 }
 
 #[test]
-#[ignore]
 fn test_cysteine_tgt() {
     let info = codons::parse(make_pairs());
     assert_eq!(info.name_for("TGT"), Ok("cysteine"));
