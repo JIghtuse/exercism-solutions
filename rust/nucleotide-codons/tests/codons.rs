@@ -19,7 +19,6 @@ fn test_cysteine_tgy() { // "compressed" name for TGT and TGC
 }
 
 #[test]
-#[ignore]
 fn test_stop() {
     let info = codons::parse(make_pairs());
     assert_eq!(info.name_for("TAA"), Ok("stop codon"));
