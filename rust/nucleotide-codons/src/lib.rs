@@ -27,10 +27,12 @@ impl Info {
         }
 
         let re = match s.chars().last().unwrap() {
-            'Y' => Regex::new(s.replace("Y", "[TC]").as_ref()).unwrap(),
-            'N' => Regex::new(s.replace("N", "[TCAG]").as_ref()).unwrap(),
+            'Y' => Regex::new(s.replace("Y", "[TC]").as_ref()),
+            'N' => Regex::new(s.replace("N", "[TCAG]").as_ref()),
+            'H' => Regex::new(s.replace("H", "[TCA]").as_ref()),
             _ => return None,
         };
+        let re = re.unwrap();
         for key in self.names.keys() {
             if re.is_match(key) {
                 return Some(key.as_ref());

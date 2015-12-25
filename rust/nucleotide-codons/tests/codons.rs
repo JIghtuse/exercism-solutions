@@ -32,7 +32,6 @@ fn test_valine() {
 
 
 #[test]
-#[ignore]
 fn test_isoleucine() {
     let info = codons::parse(make_pairs());
     assert_eq!(info.name_for("ATH"), Ok("isoleucine"));
