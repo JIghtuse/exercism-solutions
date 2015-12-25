@@ -28,6 +28,7 @@ impl Info {
 
         let re = match s.chars().last().unwrap() {
             'Y' => Regex::new(s.replace("Y", "[TC]").as_ref()).unwrap(),
+            'N' => Regex::new(s.replace("N", "[TCAG]").as_ref()).unwrap(),
             _ => return None,
         };
         for key in self.names.keys() {

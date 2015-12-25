@@ -25,7 +25,6 @@ fn test_stop() {
 }
 
 #[test]
-#[ignore]
 fn test_valine() {
     let info = codons::parse(make_pairs());
     assert_eq!(info.name_for("GTN"), Ok("valine"));
