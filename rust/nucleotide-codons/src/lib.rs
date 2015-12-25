@@ -26,13 +26,13 @@ impl Info {
             return Some(s);
         }
 
-        let re = match s.chars().last().unwrap() {
-            'Y' => Regex::new(s.replace("Y", "[TC]").as_ref()),
-            'N' => Regex::new(s.replace("N", "[TCAG]").as_ref()),
-            'H' => Regex::new(s.replace("H", "[TCA]").as_ref()),
-            _ => return None,
-        };
-        let re = re.unwrap();
+        let s = s.replace("M", "A")
+                 .replace("R", "[AG]")
+                 .replace("Y", "[CT]")
+                 .replace("H", "[ACT]")
+                 .replace("N", "[ACGT]");
+        let re = Regex::new(s.as_ref()).unwrap();
+
         for key in self.names.keys() {
             if re.is_match(key) {
                 return Some(key.as_ref());
@@ -42,6 +42,10 @@ impl Info {
     }
 
     pub fn name_for(&self, s: &'static str) -> Result<&str, NameError> {
+        if s.is_empty() {
+            return Err(NameError::NoName);
+        }
+
         if let Some(key) = self.search(s) {
             Ok(self.names[key].as_ref())
         } else {

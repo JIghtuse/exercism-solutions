@@ -38,7 +38,6 @@ fn test_isoleucine() {
 }
 
 #[test]
-#[ignore]
 fn test_arginine_name() {
     // In arginine CGA can be "compresed" both as CGN and as MGR
     let info = codons::parse(make_pairs());
@@ -48,7 +47,6 @@ fn test_arginine_name() {
 }
 
 #[test]
-#[ignore]
 fn test_invalid() {
     let info = codons::parse(make_pairs());
     assert!(info.name_for("").is_err());
