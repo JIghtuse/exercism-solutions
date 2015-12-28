@@ -32,7 +32,6 @@ fn test_name_should_match_expected_pattern() {
 }
 
 #[test]
-#[ignore]
 fn test_name_is_persistent() {
     assert_name_is_persistent(&robot::Robot::new());
 }
