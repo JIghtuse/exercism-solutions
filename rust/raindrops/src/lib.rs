@@ -1,3 +1,6 @@
 pub fn raindrops(number: i32) -> String {
-    number.to_string()
+    match number % 3 {
+        0 => "Pling".to_string(),
+        _ => number.to_string(),
+    }
 }
