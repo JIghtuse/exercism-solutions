@@ -43,9 +43,7 @@ fn test_49() { assert_eq!("Plong", raindrops::raindrops(49)); }
 fn test_52() { assert_eq!("52", raindrops::raindrops(52)); }
 
 #[test]
-#[ignore]
 fn test_105() { assert_eq!("PlingPlangPlong", raindrops::raindrops(105)); }
 
 #[test]
-#[ignore]
 fn test_12121() { assert_eq!("12121", raindrops::raindrops(12121)); }
