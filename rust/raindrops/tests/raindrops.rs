@@ -28,11 +28,9 @@ fn test_14() { assert_eq!("Plong", raindrops::raindrops(14)); }
 fn test_15() { assert_eq!("PlingPlang", raindrops::raindrops(15)); }
 
 #[test]
-#[ignore]
 fn test_21() { assert_eq!("PlingPlong", raindrops::raindrops(21)); }
 
 #[test]
-#[ignore]
 fn test_25() { assert_eq!("Plang", raindrops::raindrops(25)); }
 
 #[test]
