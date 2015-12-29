@@ -11,13 +11,11 @@ fn test_shouting() {
 }
 
 #[test]
-#[ignore]
 fn test_exclaiming() {
     assert_eq!("Whatever.", bob::reply("Let's go make out behind the gym!"));
 }
 
 #[test]
-#[ignore]
 fn test_asking() {
     assert_eq!("Sure.", bob::reply("Does this cryogenic chamber make me look fat?"));
 }
