@@ -13,19 +13,15 @@ fn test_5() { assert_eq!("Plang", raindrops::raindrops(5)); }
 fn test_7() { assert_eq!("Plong", raindrops::raindrops(7)); }
 
 #[test]
-#[ignore]
 fn test_6() { assert_eq!("Pling", raindrops::raindrops(6)); }
 
 #[test]
-#[ignore]
 fn test_9() { assert_eq!("Pling", raindrops::raindrops(9)); }
 
 #[test]
-#[ignore]
 fn test_10() { assert_eq!("Plang", raindrops::raindrops(10)); }
 
 #[test]
-#[ignore]
 fn test_14() { assert_eq!("Plong", raindrops::raindrops(14)); }
 
 #[test]
