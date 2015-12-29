@@ -59,7 +59,6 @@ fn test_new_name_is_persistent() {
 }
 
 #[test]
-#[ignore]
 fn test_new_name_is_different_from_old_name() {
     let mut r = robot::Robot::new();
     let n1 = r.name().to_string();
