@@ -37,7 +37,6 @@ fn test_name_is_persistent() {
 }
 
 #[test]
-#[ignore]
 fn test_different_robots_have_different_names() {
     let r1 = robot::Robot::new();
     let r2 = robot::Robot::new();
@@ -45,7 +44,6 @@ fn test_different_robots_have_different_names() {
 }
 
 #[test]
-#[ignore]
 fn test_new_name_should_match_expected_pattern() {
     let mut r = robot::Robot::new();
     assert_name_matches_pattern(r.name());
@@ -54,7 +52,6 @@ fn test_new_name_should_match_expected_pattern() {
 }
 
 #[test]
-#[ignore]
 fn test_new_name_is_persistent() {
     let mut r = robot::Robot::new();
     r.reset_name();
