@@ -10,7 +10,6 @@ fn test_number_cleans() {
 }
 
 #[test]
-#[ignore]
 fn test_number_cleans_with_dots() {
     assert_eq!(phone::number("123.456.7890"), to_some_string("1234567890"));
 }
@@ -76,16 +75,19 @@ fn test_area_code_with_invalid() {
 }
 
 #[test]
+#[ignore]
 fn test_pretty_print() {
     assert_eq!(phone::pretty_print("1234567890"), "(123) 456-7890");
 }
 
 #[test]
+#[ignore]
 fn test_pretty_print_with_full_us_phone_number() {
     assert_eq!(phone::pretty_print("11234567890"), "(123) 456-7890");
 }
 
 #[test]
+#[ignore]
 fn test_pretty_print_with_invalid() {
     assert_eq!(phone::pretty_print("1186234567890"), "invalid");
 }
