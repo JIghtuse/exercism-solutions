@@ -11,7 +11,6 @@ fn test_grades_for_empty_school() {
 }
 
 #[test]
-#[ignore]
 fn test_grades_for_one_student() {
     let mut s = school::School::new();
     s.add(2, "Aimee");
