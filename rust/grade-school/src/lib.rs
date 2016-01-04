@@ -13,7 +13,9 @@ impl School {
         entry.push(_name.to_owned());
     }
     pub fn grades(&self) -> Vec<i32> {
-        self.grades.keys().map(|&x| x).collect::<Vec<i32>>()
+        let mut grades = self.grades.keys().map(|&x| x).collect::<Vec<i32>>();
+        grades.sort();
+        grades
     }
     pub fn grade(&self, _grade: i32) -> Option<&Vec<String>> {
         None
