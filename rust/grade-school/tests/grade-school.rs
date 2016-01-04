@@ -49,7 +49,6 @@ fn test_grade_when_no_students_have_that_grade() {
 }
 
 #[test]
-#[ignore]
 fn test_grade_for_one_student() {
     let mut s = school::School::new();
     s.add(2, "Aimee");
