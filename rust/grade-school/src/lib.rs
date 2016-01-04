@@ -8,9 +8,9 @@ impl School {
     pub fn new() -> School {
         School { grades: HashMap::new() }
     }
-    pub fn add(&mut self, _grade: usize, _name: &str) {
-        let entry = self.grades.entry(_grade).or_insert(vec![]);
-        entry.push(_name.to_owned());
+    pub fn add(&mut self, grade: usize, name: &str) {
+        let entry = self.grades.entry(grade).or_insert(vec![]);
+        entry.push(name.to_owned());
         entry.sort();
     }
     pub fn grades(&self) -> Vec<usize> {
@@ -18,7 +18,7 @@ impl School {
         grades.sort();
         grades
     }
-    pub fn grade(&self, _grade: usize) -> Option<&Vec<String>> {
-        self.grades.get(&_grade)
+    pub fn grade(&self, grade: usize) -> Option<&Vec<String>> {
+        self.grades.get(&grade)
     }
 }
