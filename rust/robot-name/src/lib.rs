@@ -28,7 +28,7 @@ impl Robot {
     pub fn new() -> Robot {
         Robot { name: next_name() }
     }
-    pub fn name<'a>(&'a self) -> &'a str {
+    pub fn name(&self) -> &str {
         self.name.as_ref()
     }
     pub fn reset_name(&mut self) {
