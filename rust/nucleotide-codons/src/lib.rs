@@ -31,7 +31,7 @@ impl Info {
                  .replace("Y", "[CT]")
                  .replace("H", "[ACT]")
                  .replace("N", "[ACGT]");
-        let re = Regex::new(s.as_ref()).unwrap();
+        let re = Regex::new(s.as_ref()).expect("Failed creating regex");
 
         for key in self.names.keys() {
             if re.is_match(key) {
