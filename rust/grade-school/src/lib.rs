@@ -14,7 +14,7 @@ impl School {
         entry.sort();
     }
     pub fn grades(&self) -> Vec<usize> {
-        let mut grades = self.grades.keys().map(|&x| x).collect::<Vec<usize>>();
+        let mut grades : Vec<usize> = self.grades.keys().cloned().collect();
         grades.sort();
         grades
     }
