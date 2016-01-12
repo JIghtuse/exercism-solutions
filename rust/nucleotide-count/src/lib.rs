@@ -12,7 +12,7 @@ pub fn nucleotide_counts<S>(strand: S) -> HashMap<char, usize>
     where S: Into<String>
 {
     let mut result: HashMap<char, usize> = HashMap::with_capacity(4);
-    for nucleotide in DNA_NUCLEOTIDS.iter() {
+    for nucleotide in &DNA_NUCLEOTIDS {
         result.insert(*nucleotide, 0);
     }
 
