@@ -17,8 +17,8 @@ pub fn number(s: &str) -> Option<String> {
     extract_number(digits)
 }
 
-pub fn area_code(_s: &str) -> Option<String> {
-    None
+pub fn area_code(s: &str) -> Option<String> {
+    number(s).map(|n| n.chars().take(3).collect())
 }
 
 pub fn pretty_print(_s: &str) -> &str {

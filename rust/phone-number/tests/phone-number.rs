@@ -50,19 +50,16 @@ fn test_valid_with_trailing_characters() {
 }
 
 #[test]
-#[ignore]
 fn test_area_code() {
     assert_eq!(phone::area_code("1234567890"), to_some_string("123"));
 }
 
 #[test]
-#[ignore]
 fn test_area_code_with_full_us_phone_number() {
     assert_eq!(phone::area_code("18234567890"), to_some_string("823"));
 }
 
 #[test]
-#[ignore]
 fn test_area_code_with_invalid() {
     assert_eq!(phone::area_code("1234161567890"), None);
 }
