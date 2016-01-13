@@ -20,37 +20,31 @@ fn test_valid_when_11_digits_and_first_is_1() {
 }
 
 #[test]
-#[ignore]
 fn test_invalid_when_11_digits() {
     assert_eq!(phone::number("21234567890"), None);
 }
 
 #[test]
-#[ignore]
 fn test_invalid_when_9_digits() {
     assert_eq!(phone::number("123456789"), None);
 }
 
 #[test]
-#[ignore]
 fn test_invalid_when_empty() {
     assert_eq!(phone::number(""), None);
 }
 
 #[test]
-#[ignore]
 fn test_invalid_when_no_digits_present() {
     assert_eq!(phone::number(" (-) "), None);
 }
 
 #[test]
-#[ignore]
 fn test_valid_with_leading_characters() {
     assert_eq!(phone::number("my number is 123 456 7890"), to_some_string("1234567890"));
 }
 
 #[test]
-#[ignore]
 fn test_valid_with_trailing_characters() {
     assert_eq!(phone::number("123 456 7890 - bob"), to_some_string("1234567890"));
 }
