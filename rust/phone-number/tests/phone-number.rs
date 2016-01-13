@@ -15,7 +15,6 @@ fn test_number_cleans_with_dots() {
 }
 
 #[test]
-#[ignore]
 fn test_valid_when_11_digits_and_first_is_1() {
     assert_eq!(phone::number("11234567890"), to_some_string("1234567890"));
 }
