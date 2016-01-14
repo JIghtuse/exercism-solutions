@@ -6,7 +6,6 @@ fn test_hex_1_is_decimal_1() {
 }
 
 #[test]
-#[ignore]
 fn test_hex_c_is_decimal_12() {
     assert_eq!(Some(12), hexadecimal::hex_to_int("c"));
 }
