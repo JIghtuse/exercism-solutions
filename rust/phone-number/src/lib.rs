@@ -21,6 +21,12 @@ pub fn area_code(s: &str) -> Option<String> {
     number(s).map(|n| n.chars().take(3).collect())
 }
 
-pub fn pretty_print(_s: &str) -> &str {
-    _s
+pub fn pretty_print(s: &str) -> String {
+    match number(s) {
+        None => "invalid".to_owned(),
+        Some(num) => {
+            let (area, prefix, number) = (&num[..3], &num[3..6], &num[6..]);
+            format!("({}) {}-{}", area, prefix, number)
+        }
+    }
 }
