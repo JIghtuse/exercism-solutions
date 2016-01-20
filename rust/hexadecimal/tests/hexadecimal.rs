@@ -31,25 +31,21 @@ fn test_hex_19ace_is_decimal_105166() {
 }
 
 #[test]
-#[ignore]
 fn test_invalid_hex_is_none() {
     assert_eq!(None, hexadecimal::hex_to_int("carrot"));
 }
 
 #[test]
-#[ignore]
 fn test_black() {
     assert_eq!(Some(0), hexadecimal::hex_to_int("0000000"));
 }
 
 #[test]
-#[ignore]
 fn test_white() {
     assert_eq!(Some(16777215), hexadecimal::hex_to_int("ffffff"));
 }
 
 #[test]
-#[ignore]
 fn test_yellow() {
     assert_eq!(Some(16776960), hexadecimal::hex_to_int("ffff00"));
 }
