@@ -1,3 +1,8 @@
+# Rust
 build
 target
 Cargo.lock
+
+# Python
+*.pyc
+__pycache__
