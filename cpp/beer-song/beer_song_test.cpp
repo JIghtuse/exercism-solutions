@@ -42,7 +42,6 @@ BOOST_AUTO_TEST_CASE(sings_several_verses)
     BOOST_REQUIRE_EQUAL(expected, beer::sing(8, 6));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(sings_the_rest_of_the_verses)
 {
     string expected = "3 bottles of beer on the wall, 3 bottles of beer.\n"
@@ -59,4 +58,5 @@ BOOST_AUTO_TEST_CASE(sings_the_rest_of_the_verses)
 
     BOOST_REQUIRE_EQUAL(expected, beer::sing(3));
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif

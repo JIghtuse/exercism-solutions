@@ -5,7 +5,7 @@
 
 namespace beer {
     std::string verse(size_t n);
-    std::string sing(size_t from, size_t down_to);
+    std::string sing(size_t from, size_t down_to=0);
 }
 
 #endif // BEER_SONG_H
