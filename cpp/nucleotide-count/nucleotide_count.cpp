@@ -5,5 +5,10 @@ using std::experimental::string_view;
 
 map<char, int> dna::counter::nucleotide_counts() const
 {
-    return map<char, int>{};
+    return map<char, int>{
+        { 'A', 0 },
+        { 'T', 0 },
+        { 'C', 0 },
+        { 'G', 0 },
+    };
 }
