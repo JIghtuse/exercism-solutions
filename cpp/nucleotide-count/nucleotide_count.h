@@ -8,13 +8,13 @@ namespace dna {
 
 class counter {
 public:
-    counter(std::experimental::string_view strand):
-        strand{strand}
-    {}
+    counter(std::experimental::string_view strand);
 
     std::map<char, int> nucleotide_counts() const;
+    int count(char nucleotide) const;
 private:
     std::experimental::string_view strand;
+    std::map<char, int> stats;
 };
 
 }

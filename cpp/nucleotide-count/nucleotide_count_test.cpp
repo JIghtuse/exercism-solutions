@@ -26,7 +26,6 @@ BOOST_AUTO_TEST_CASE(has_no_nucleotides)
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), actual.begin(), actual.end());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(has_no_adenosine)
 {
     const dna::counter dna("");
@@ -67,6 +66,7 @@ BOOST_AUTO_TEST_CASE(counts_a_nucleotide_only_once)
     BOOST_REQUIRE_EQUAL(2, dna.count('T'));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(validates_nucleotides)
 {
     const dna::counter dna("GGTTGG");
