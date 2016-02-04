@@ -49,3 +49,13 @@ string beer::verse(size_t n)
 
     return out.str();
 }
+
+string beer::sing(size_t from, size_t down_to)
+{
+    ostringstream out;
+    size_t i;
+    for (i = from; i != down_to; --i)
+        out << verse(i) << '\n';
+    out << verse(i);
+    return out.str();
+}
