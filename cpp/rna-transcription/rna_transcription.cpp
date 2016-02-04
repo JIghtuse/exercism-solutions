@@ -3,9 +3,9 @@
 
 using namespace std;
 
-char transcription::to_rna(char c)
+char transcription::to_rna(char dna_nucleotide)
 {
-    switch (c) {
+    switch (dna_nucleotide) {
     case 'C':
         return 'G';
     case 'G':
