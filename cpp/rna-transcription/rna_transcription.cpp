@@ -15,6 +15,6 @@ char transcription::to_rna(char c)
     case 'T':
         return 'A';
     default:
-        throw invalid_argument{"No such nucleotide"};
+        throw invalid_argument{ "No such nucleotide" };
     }
 }
