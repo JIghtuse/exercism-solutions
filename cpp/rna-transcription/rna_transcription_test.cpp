@@ -22,9 +22,9 @@ BOOST_AUTO_TEST_CASE(transcribes_thymidine_to_adenosine)
     BOOST_REQUIRE_EQUAL('A', transcription::to_rna('T'));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(transcribes_all_dna_nucleotides_to_their_rna_complements)
 {
     BOOST_REQUIRE_EQUAL("UGCACCAGAAUU", transcription::to_rna("ACGTGGTCTTAA"));
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif
