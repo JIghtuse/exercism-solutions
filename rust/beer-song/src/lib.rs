@@ -1,41 +1,38 @@
-fn plural(word: String, n: usize) -> String {
-    if n == 0 {
-        return "no more bottles".to_owned();
+fn how_much(word: &str, n: usize, capitalize: bool) -> String {
+    match n {
+        0 => {
+            if capitalize {
+                format!("No more {}s", word)
+            } else {
+                format!("no more {}s", word)
+            }
+        }
+        1 => format!("{} {}", n, word),
+        _ => format!("{} {}s", n, word),
     }
-    let suffix = if n == 1 {
-        ""
-    } else {
-        "s"
-    };
-    format!("{} {}{}", n, word, suffix)
 }
 
 pub fn verse(nbottles: usize) -> String {
-    let bottle_plural = |n| plural("bottle".to_owned(), n);
-    let how_much = |n| {
+    let how_much_bottles = |n, start| how_much("bottle", n, start);
+    let take_what = |n| {
         if n == 1 {
             "it"
         } else {
             "one"
         }
     };
-    match nbottles {
-        0 => {
-            "No more bottles of beer on the wall, no more bottles of beer.
-Go to the store and buy \
-             some more, 99 bottles of beer on the wall.\n"
-                .to_owned()
-        }
-        _ => {
-            format!("{} of beer on the wall, {} of beer.
-Take {} down and pass it around, {} of \
-                     beer on the wall.\n",
-                    bottle_plural(nbottles),
-                    bottle_plural(nbottles),
-                    how_much(nbottles),
-                    bottle_plural(nbottles - 1))
-        }
+    let mut verse = format!("{} of beer on the wall, {} of beer.\n",
+                            how_much_bottles(nbottles, true),
+                            how_much_bottles(nbottles, false),
+                            );
+    if nbottles == 0 {
+        verse.push_str("Go to the store and buy some more, 99 bottles of beer on the wall.\n");
+    } else {
+        verse.push_str(&format!("Take {} down and pass it around, {} of beer on the wall.\n",
+                                take_what(nbottles),
+                                how_much_bottles(nbottles - 1, false)));
     }
+    verse
 }
 
 pub fn sing(to: usize, from: usize) -> String {
