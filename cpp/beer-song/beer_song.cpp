@@ -23,15 +23,29 @@ ostream& operator<<(ostream& out, const struct Bottles& bottles)
     return out;
 }
 
+string capitalize(const struct Bottles& bottles)
+{
+    ostringstream out;
+    out << bottles;
+    auto result = out.str();
+    result[0] = toupper(result[0]);
+    return result;
+}
+
 string beer::verse(size_t n)
 {
     auto bottles = Bottles{n};
 
     ostringstream out;
-    out << bottles << " on the wall, " << bottles << ".\n";
-    out << "Take " << (bottles.n == 1 ? "it" : "one")
-        << " down and pass it around, "
-        << Bottles{n - 1} << " on the wall.\n";
+    out << capitalize(bottles) << " on the wall, " << bottles << ".\n";
+
+    if (!bottles.n)
+        out << "Go to the store and buy some more, "
+            << Bottles{99} << " on the wall.\n";
+    else
+        out << "Take " << (bottles.n == 1 ? "it" : "one")
+            << " down and pass it around, "
+            << Bottles{n - 1} << " on the wall.\n";
 
     return out.str();
 }

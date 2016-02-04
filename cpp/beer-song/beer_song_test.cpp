@@ -20,7 +20,6 @@ BOOST_AUTO_TEST_CASE(handles_1_bottle)
     BOOST_REQUIRE_EQUAL(expected, beer::verse(1));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(handles_0_bottles)
 {
     string expected = "No more bottles of beer on the wall, no more bottles of beer.\n"
@@ -29,6 +28,7 @@ BOOST_AUTO_TEST_CASE(handles_0_bottles)
     BOOST_REQUIRE_EQUAL(expected, beer::verse(0));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(sings_several_verses)
 {
     string expected = "8 bottles of beer on the wall, 8 bottles of beer.\n"
