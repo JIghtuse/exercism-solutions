@@ -24,9 +24,7 @@ bool is_anagram(const string& word, const string& input)
     if (word_lower == input_lower)
         return false; // word is not an anagram to itself
 
-    sort(word_lower.begin(), word_lower.end());
-    sort(input_lower.begin(), input_lower.end());
-    return word_lower == input_lower;
+    return is_permutation(word_lower.begin(), word_lower.end(), input_lower.begin());
 }
 
 vector<string> anagram::matches(const initializer_list<const string> inputs)
