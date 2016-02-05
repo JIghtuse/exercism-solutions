@@ -30,7 +30,6 @@ fn empty_board_has_no_annotations() {
 }
 
 #[test]
-#[ignore]
 fn board_full_of_mines_has_no_annotations() {
     run_test(&[
         "***",
