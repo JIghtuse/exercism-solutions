@@ -33,3 +33,17 @@ std::string phone_number::number() const
 {
     return number_;
 }
+
+std::string phone_number::area_code() const
+{
+    return number_.substr(0, 3);
+}
+
+phone_number::operator std::string() const
+{
+    std::ostringstream oss;
+    oss << "(" << area_code() << ") "
+        << number_.substr(3, 3) << "-"
+        << number_.substr(6);
+    return oss.str();
+}

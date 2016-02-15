@@ -37,7 +37,6 @@ BOOST_AUTO_TEST_CASE(invalid_when_9_digits)
     BOOST_REQUIRE_EQUAL("0000000000", phone.number());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(has_an_area_code)
 {
     const phone_number phone("1234567890");
@@ -51,4 +50,5 @@ BOOST_AUTO_TEST_CASE(formats_a_number)
 
     BOOST_REQUIRE_EQUAL("(123) 456-7890", std::string(phone));
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif

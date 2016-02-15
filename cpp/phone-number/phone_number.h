@@ -8,6 +8,8 @@ class phone_number {
 public:
     phone_number(std::experimental::string_view sv);
     std::string number() const;
+    std::string area_code() const;
+    operator std::string() const;
 
 private:
     std::string number_;
