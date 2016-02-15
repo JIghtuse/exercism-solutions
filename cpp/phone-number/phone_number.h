@@ -3,7 +3,6 @@
 
 #include <experimental/string_view>
 #include <string>
-#include <sstream>
 
 class phone_number {
 public:
@@ -11,7 +10,7 @@ public:
     std::string number() const;
 
 private:
-    std::ostringstream oss;
+    std::string number_;
 };
 
 #endif // PHONE_NUMBER_H

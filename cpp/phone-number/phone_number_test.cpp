@@ -16,7 +16,6 @@ BOOST_AUTO_TEST_CASE(cleans_numbers_with_dots)
     BOOST_REQUIRE_EQUAL("1234567890", phone.number());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(valid_when_11_digits_and_first_digit_is_1)
 {
     const phone_number phone("11234567890");
@@ -24,6 +23,7 @@ BOOST_AUTO_TEST_CASE(valid_when_11_digits_and_first_digit_is_1)
     BOOST_REQUIRE_EQUAL("1234567890", phone.number());
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(invalid_when_11_digits)
 {
     const phone_number phone("21234567890");
