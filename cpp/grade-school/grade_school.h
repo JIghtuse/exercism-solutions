@@ -10,6 +10,7 @@ namespace grade_school {
 class school {
 public:
     auto roster() const { return roster_; }
+    void add(const std::string& name, int grade);
 private:
     std::map<int, std::vector<std::string>> roster_;
 };
