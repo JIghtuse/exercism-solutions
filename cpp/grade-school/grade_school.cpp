@@ -11,5 +11,8 @@ void school::add(const std::string& name, int grade)
 
 Names school::grade(int grade) const
 {
-    return roster_.at(grade);
+    if (roster_.count(grade))
+        return roster_.at(grade);
+    else
+        return Names{};
 }
