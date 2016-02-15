@@ -7,12 +7,16 @@
 
 namespace grade_school {
 
+using Names = std::vector<std::string>;
+using Roster = std::map<int, Names>;
+
 class school {
 public:
-    auto roster() const { return roster_; }
+    Roster roster() const { return roster_; }
     void add(const std::string& name, int grade);
+    Names grade(int grade) const;
 private:
-    std::map<int, std::vector<std::string>> roster_;
+    Roster roster_;
 };
 
 }

@@ -79,7 +79,6 @@ BOOST_AUTO_TEST_CASE(adding_students_to_different_grades_adds_them_to_the_roster
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(grade_returns_the_students_in_that_grade_in_alphabetical_order)
 {
     school_.add("Franklin", 5);
@@ -92,6 +91,7 @@ BOOST_AUTO_TEST_CASE(grade_returns_the_students_in_that_grade_in_alphabetical_or
     REQUIRE_EQUAL_CONTAINERS(expected, actual);
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(grade_returns_an_empty_array_if_there_are_no_students_in_that_grade)
 {
     const auto actual = school_.grade(1);
