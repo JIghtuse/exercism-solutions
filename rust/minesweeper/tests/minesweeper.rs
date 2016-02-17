@@ -39,7 +39,6 @@ fn board_full_of_mines_has_no_annotations() {
 }
 
 #[test]
-#[ignore]
 fn one_horizontal_row_with_one_mine() {
     run_test(&[
         "   1*1 "
