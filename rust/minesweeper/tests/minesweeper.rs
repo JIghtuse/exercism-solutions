@@ -46,7 +46,6 @@ fn one_horizontal_row_with_one_mine() {
 }
 
 #[test]
-#[ignore]
 fn one_horizontal_row_with_two_mines() {
     run_test(&[
         " 1*2*1 "
@@ -54,7 +53,6 @@ fn one_horizontal_row_with_two_mines() {
 }
 
 #[test]
-#[ignore]
 fn one_horizontal_row_with_one_mine_at_the_left_end() {
     run_test(&[
         "*1  "
@@ -62,7 +60,6 @@ fn one_horizontal_row_with_one_mine_at_the_left_end() {
 }
 
 #[test]
-#[ignore]
 fn one_horizontal_row_with_one_mine_at_the_right_end() {
     run_test(&[
         "  1*"
