@@ -5,7 +5,7 @@ pub fn word_count(text: &str) -> HashMap<String, u32> {
 
     for word in text.split(|c: char| !c.is_alphanumeric()) {
         if !word.is_empty() {
-            let word = word.to_lowercase().to_owned();
+            let word = word.to_lowercase();
             let counter = result.entry(word).or_insert(0);
             *counter += 1;
         }
