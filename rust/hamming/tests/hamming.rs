@@ -11,19 +11,16 @@ fn test_no_difference_between_identical_strands() {
 }
 
 #[test]
-#[ignore]
 fn test_complete_hamming_distance_in_small_strand() {
     assert_eq!(dna::hamming_distance("ACT", "GGA").unwrap(), 3);
 }
 
 #[test]
-#[ignore]
 fn test_small_hamming_distance_in_the_middle_somewhere() {
     assert_eq!(dna::hamming_distance("GGACG", "GGTCG").unwrap(), 1);
 }
 
 #[test]
-#[ignore]
 fn test_larger_distance() {
     assert_eq!(dna::hamming_distance("ACCAGGG", "ACTATGG").unwrap(), 2);
 }
