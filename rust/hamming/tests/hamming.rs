@@ -6,7 +6,6 @@ fn test_no_difference_between_empty_strands() {
 }
 
 #[test]
-#[ignore]
 fn test_no_difference_between_identical_strands() {
     assert_eq!(dna::hamming_distance("GGACTGA", "GGACTGA").unwrap(), 0);
 }
