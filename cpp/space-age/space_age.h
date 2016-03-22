@@ -37,20 +37,24 @@ const std::map<Planet, OrbitalPeriod> kOrbitalPeriods{
 class space_age {
 public:
     explicit space_age(double seconds)
-        : m_seconds{ static_cast<double>(seconds) }
+        : m_seconds{ seconds }
     {
     }
     double seconds() const { return m_seconds; }
 
-    double on_earth() const { return m_seconds / kOrbitalPeriods.at(Planet::Earth); }
-    double on_mercury() const { return m_seconds / kOrbitalPeriods.at(Planet::Mercury); }
-    double on_venus() const { return m_seconds / kOrbitalPeriods.at(Planet::Venus); }
-    double on_mars() const { return m_seconds / kOrbitalPeriods.at(Planet::Mars); }
-    double on_jupiter() const { return m_seconds / kOrbitalPeriods.at(Planet::Jupiter); }
-    double on_saturn() const { return m_seconds / kOrbitalPeriods.at(Planet::Saturn); }
-    double on_uranus() const { return m_seconds / kOrbitalPeriods.at(Planet::Uranus); }
-    double on_neptune() const { return m_seconds / kOrbitalPeriods.at(Planet::Neptune); }
+    double on_earth() const { return on_planet(Planet::Earth); }
+    double on_mercury() const { return on_planet(Planet::Mercury); }
+    double on_venus() const { return on_planet(Planet::Venus); }
+    double on_mars() const { return on_planet(Planet::Mars); }
+    double on_jupiter() const { return on_planet(Planet::Jupiter); }
+    double on_saturn() const { return on_planet(Planet::Saturn); }
+    double on_uranus() const { return on_planet(Planet::Uranus); }
+    double on_neptune() const { return on_planet(Planet::Neptune); }
 private:
+    double on_planet(const Planet& p) const
+    {
+        return m_seconds / kOrbitalPeriods.at(p);
+    }
     double m_seconds;
 };
 
