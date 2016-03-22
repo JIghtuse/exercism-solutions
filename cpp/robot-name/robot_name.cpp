@@ -30,6 +30,7 @@ std::string random_name()
     return name;
 }
 
+// Will be dead unefficient near exhaustion
 std::string original_random_name()
 {
     auto name = random_name();
