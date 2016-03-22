@@ -32,7 +32,6 @@ BOOST_AUTO_TEST_CASE(different_robots_have_different_names)
     BOOST_REQUIRE_NE(robot_one.name(), robot_two.name());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(is_able_to_reset_name)
 {
     robot_name::robot robot;
@@ -54,4 +53,5 @@ BOOST_AUTO_TEST_CASE(exhausting_digits_yields_different_names)
         BOOST_REQUIRE(boost::regex_match(robot.name(), name_pattern));
     }
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif

@@ -49,4 +49,9 @@ std::string robot::name() const
     return m_name;
 }
 
+void robot::reset()
+{
+    m_name = original_random_name();
+}
+
 } // namespace robot_name

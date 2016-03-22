@@ -8,6 +8,7 @@ class robot {
 public:
     robot();
     std::string name() const;
+    void reset();
 
 private:
     std::string m_name;
