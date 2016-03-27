@@ -4,8 +4,10 @@ namespace triangle {
 
 enum TriangleKind {
     equilateral,
+    isosceles,
+    scalene,
 };
 
-TriangleKind kind(unsigned a, unsigned b, unsigned c);
+TriangleKind kind(double a, double b, double c);
 
 } // namespace triangle

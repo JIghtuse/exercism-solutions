@@ -13,7 +13,6 @@ BOOST_AUTO_TEST_CASE(larger_equilateral_triangles_also_have_equal_sides)
     BOOST_REQUIRE_EQUAL(triangle::equilateral, triangle::kind(10, 10, 10));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(isosceles_triangles_have_last_two_sides_equal)
 {
     BOOST_REQUIRE_EQUAL(triangle::isosceles, triangle::kind(3, 4, 4));
@@ -78,4 +77,5 @@ BOOST_AUTO_TEST_CASE(larger_triangles_violating_triangle_inequality_are_illegal)
 {
     BOOST_REQUIRE_THROW(triangle::kind(7, 3, 2), std::domain_error);
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif
