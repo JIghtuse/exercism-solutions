@@ -23,7 +23,6 @@ BOOST_AUTO_TEST_CASE(can_add_minutes)
     BOOST_REQUIRE_EQUAL("10:03", string(clock));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(can_add_over_an_hour)
 {
     const auto clock = date_independent::clock::at(10).plus(61);
@@ -31,6 +30,7 @@ BOOST_AUTO_TEST_CASE(can_add_over_an_hour)
     BOOST_REQUIRE_EQUAL("11:01", string(clock));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(wraps_around_midnight)
 {
     const auto clock = date_independent::clock::at(23, 59).plus(2);
