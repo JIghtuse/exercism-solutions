@@ -1,4 +1,5 @@
 #include "clock.h"
+#include <stdexcept>
 
 namespace date_independent {
 
@@ -6,6 +7,9 @@ clock::clock(Hours h, Minutes m)
     : m_hours{ h }
     , m_minutes{ m }
 {
+    if (m_hours > 23 || m_minutes > 59) {
+        throw std::domain_error{ "incorrect input" };
+    }
 }
 
 clock clock::at(Hours h, Minutes m)
