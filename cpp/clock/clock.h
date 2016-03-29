@@ -15,9 +15,14 @@ public:
     clock minus(Minutes);
     operator std::string() const;
 
+    Hours hours() const { return m_hours; }
+    Minutes minutes() const { return m_minutes; }
 private:
-    Hours hours;
-    Minutes minutes;
+    Hours m_hours;
+    Minutes m_minutes;
 };
+
+bool operator==(const clock& a, const clock& b);
+bool operator!=(const clock& a, const clock& b);
 
 } // namespace date_independent

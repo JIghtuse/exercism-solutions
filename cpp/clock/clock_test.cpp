@@ -58,7 +58,6 @@ BOOST_AUTO_TEST_CASE(can_subtract_over_an_hour)
     BOOST_REQUIRE_EQUAL("08:53", string(clock));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(can_know_if_its_equal_to_another_clock)
 {
     const auto clock1 = date_independent::clock::at(10, 3);
@@ -75,6 +74,7 @@ BOOST_AUTO_TEST_CASE(can_know_if_its_not_equal_to_another_clock)
     BOOST_REQUIRE(clock1 != clock2);
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(wraps_around_midnight_backwards)
 {
     const auto clock = date_independent::clock::at(0, 3).minus(4);

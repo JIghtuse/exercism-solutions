@@ -3,8 +3,8 @@
 namespace date_independent {
 
 clock::clock(Hours h, Minutes m)
-    : hours{ h }
-    , minutes{ m }
+    : m_hours{ h }
+    , m_minutes{ m }
 {
 }
 
@@ -15,14 +15,25 @@ clock clock::at(Hours h, Minutes m)
 
 clock clock::plus(Minutes m)
 {
-    auto total_minutes = hours * 60 + minutes + m;
+    auto total_minutes = m_hours * 60 + m_minutes + m;
     return { (total_minutes / 60) % 24, total_minutes % 60 };
 }
 
 clock clock::minus(Minutes m)
 {
-    auto total_minutes = hours * 60 + minutes - m;
+    auto total_minutes = m_hours * 60 + m_minutes - m;
     return { (total_minutes / 60) % 24, total_minutes % 60 };
+}
+
+bool operator==(const clock& a, const clock& b)
+{
+    return a.hours() == b.hours()
+        && a.minutes() == b.minutes();
+}
+
+bool operator!=(const clock& a, const clock& b)
+{
+    return !(a == b);
 }
 
 clock::operator std::string() const
@@ -34,8 +45,8 @@ clock::operator std::string() const
         }
         repr[offset + 1] = n % 10 + '0';
     };
-    stringify(hours, 0);
-    stringify(minutes, 3);
+    stringify(m_hours, 0);
+    stringify(m_minutes, 3);
     return repr;
 }
 
