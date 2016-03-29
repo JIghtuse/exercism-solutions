@@ -51,7 +51,6 @@ BOOST_AUTO_TEST_CASE(can_subtract_to_previous_hour)
     BOOST_REQUIRE_EQUAL("09:33", string(clock));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(can_subtract_over_an_hour)
 {
     const auto clock = date_independent::clock::at(10, 3).minus(70);
@@ -59,6 +58,7 @@ BOOST_AUTO_TEST_CASE(can_subtract_over_an_hour)
     BOOST_REQUIRE_EQUAL("08:53", string(clock));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(can_know_if_its_equal_to_another_clock)
 {
     const auto clock1 = date_independent::clock::at(10, 3);

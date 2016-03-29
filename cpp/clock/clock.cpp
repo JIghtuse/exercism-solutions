@@ -15,14 +15,14 @@ clock clock::at(Hours h, Minutes m)
 
 clock clock::plus(Minutes m)
 {
-    auto total_minutes = minutes + m;
-    return { (hours + total_minutes / 60) % 24, total_minutes % 60 };
+    auto total_minutes = hours * 60 + minutes + m;
+    return { (total_minutes / 60) % 24, total_minutes % 60 };
 }
 
 clock clock::minus(Minutes m)
 {
     auto total_minutes = hours * 60 + minutes - m;
-    return { total_minutes / 60, total_minutes % 60 };
+    return { (total_minutes / 60) % 24, total_minutes % 60 };
 }
 
 clock::operator std::string() const
