@@ -11,8 +11,8 @@ class clock {
 public:
     clock(Hours, Minutes);
     static clock at(Hours h, Minutes m=0);
-    clock plus(Minutes);
-    clock minus(Minutes);
+    clock plus(Minutes) const;
+    clock minus(Minutes) const;
     operator std::string() const;
 
     Hours hours() const { return m_hours; }
