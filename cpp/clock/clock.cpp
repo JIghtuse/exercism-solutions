@@ -21,7 +21,8 @@ clock clock::plus(Minutes m)
 
 clock clock::minus(Minutes m)
 {
-    return { hours, minutes - m };
+    auto total_minutes = hours * 60 + minutes - m;
+    return { total_minutes / 60, total_minutes % 60 };
 }
 
 clock::operator std::string() const
