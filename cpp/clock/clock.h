@@ -4,13 +4,14 @@
 
 namespace date_independent {
 
-using Hours = char;
-using Minutes = char;
+using Hours = unsigned;
+using Minutes = unsigned;
 
 class clock {
 public:
     clock(Hours, Minutes);
     static clock at(Hours h, Minutes m=0);
+    clock plus(Minutes);
     operator std::string() const;
 
 private:

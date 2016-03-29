@@ -13,9 +13,14 @@ clock clock::at(Hours h, Minutes m)
     return { h, m };
 }
 
+clock clock::plus(Minutes m)
+{
+    return { hours, minutes + m };
+}
+
 clock::operator std::string() const
 {
-    std::string repr{"00:00"};
+    std::string repr{ "00:00" };
     auto stringify = [&repr](int n, int offset) {
         if (n > 9) {
             repr[offset] = n / 10 + '0';
