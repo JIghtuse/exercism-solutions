@@ -21,7 +21,7 @@ clock clock::plus(Minutes m)
 
 clock clock::minus(Minutes m)
 {
-    auto total_minutes = m_hours * 60 + m_minutes - m;
+    auto total_minutes = (24 + m_hours) * 60 + m_minutes - m;
     return { (total_minutes / 60) % 24, total_minutes % 60 };
 }
 
