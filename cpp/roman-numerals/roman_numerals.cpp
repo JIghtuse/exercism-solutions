@@ -2,5 +2,8 @@
 
 std::string roman::convert(unsigned number)
 {
+    if (number == 1) {
+        return "I";
+    }
     return "";
 }
