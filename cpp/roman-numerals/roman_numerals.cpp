@@ -2,8 +2,9 @@
 
 std::string roman::convert(unsigned number)
 {
-    if (number == 1) {
-        return "I";
+    std::string roman_number;
+    for (int i = 0; i < number; ++i) {
+        roman_number += "I";
     }
-    return "";
+    return roman_number;
 }

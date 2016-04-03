@@ -7,7 +7,6 @@ BOOST_AUTO_TEST_CASE(one_yields_I)
     BOOST_REQUIRE_EQUAL("I", roman::convert(1));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(two_yields_II)
 {
     BOOST_REQUIRE_EQUAL("II", roman::convert(2));
@@ -18,6 +17,7 @@ BOOST_AUTO_TEST_CASE(three_yields_III)
     BOOST_REQUIRE_EQUAL("III", roman::convert(3));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(four_yields_IV)
 {
     BOOST_REQUIRE_EQUAL("IV", roman::convert(4));
