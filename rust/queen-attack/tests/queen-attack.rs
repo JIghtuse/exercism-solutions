@@ -9,7 +9,6 @@ fn test_queen_creation_with_valid_position() {
 }
 
 #[test]
-#[ignore]
 fn test_queen_creation_with_incorrect_positions() {
     let white_queen = Queen::new((-1,2));
     assert!(white_queen.is_err());
@@ -25,7 +24,6 @@ fn test_queen_creation_with_incorrect_positions() {
 }
 
 #[test]
-#[ignore]
 fn test_can_not_attack() {
     let white_queen = Queen::new((2,4)).unwrap();
     let black_queen = Queen::new((6,6)).unwrap();
@@ -33,7 +31,6 @@ fn test_can_not_attack() {
 }
 
 #[test]
-#[ignore]
 fn test_can_attack_on_same_rank() {
     let white_queen = Queen::new((2,4)).unwrap();
     let black_queen = Queen::new((2,6)).unwrap();
@@ -41,7 +38,6 @@ fn test_can_attack_on_same_rank() {
 }
 
 #[test]
-#[ignore]
 fn test_can_attack_on_same_file() {
     let white_queen = Queen::new((4,5)).unwrap();
     let black_queen = Queen::new((3,5)).unwrap();
@@ -49,7 +45,6 @@ fn test_can_attack_on_same_file() {
 }
 
 #[test]
-#[ignore]
 fn test_can_attack_on_first_diagonal() {
     let white_queen = Queen::new((2,2)).unwrap();
     let black_queen = Queen::new((0,4)).unwrap();
@@ -57,7 +52,6 @@ fn test_can_attack_on_first_diagonal() {
 }
 
 #[test]
-#[ignore]
 fn test_can_attack_on_second_diagonal() {
     let white_queen = Queen::new((2,2)).unwrap();
     let black_queen = Queen::new((3,1)).unwrap();
@@ -65,7 +59,6 @@ fn test_can_attack_on_second_diagonal() {
 }
 
 #[test]
-#[ignore]
 fn test_can_attack_on_third_diagonal() {
     let white_queen = Queen::new((2,2)).unwrap();
     let black_queen = Queen::new((1,1)).unwrap();
@@ -73,7 +66,6 @@ fn test_can_attack_on_third_diagonal() {
 }
 
 #[test]
-#[ignore]
 fn test_can_attack_on_fourth_diagonal() {
     let white_queen = Queen::new((2,2)).unwrap();
     let black_queen = Queen::new((5,5)).unwrap();
