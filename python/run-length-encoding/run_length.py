@@ -1,6 +1,7 @@
 import re
 from itertools import groupby
 
+
 def encode(s):
     res = ""
     for char, group in groupby(s):
@@ -9,6 +10,7 @@ def encode(s):
             res += str(length)
         res += char
     return res
+
 
 def decode(s):
     nums = (int(n) if n else 1 for n in re.split('\D', s))
