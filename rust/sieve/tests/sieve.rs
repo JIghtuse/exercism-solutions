@@ -8,7 +8,6 @@ fn limit_lower_than_the_first_prime() {
 }
 
 #[test]
-#[ignore]
 fn limit_is_the_first_prime() {
     assert_eq!(Sieve::primes_up_to(2), [2]);
 }
