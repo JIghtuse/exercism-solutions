@@ -96,9 +96,9 @@ BOOST_AUTO_TEST_CASE(can_slice_by_5)
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), actual.begin(), actual.end());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(domain_error_if_not_enough_digits_to_slice)
 {
     BOOST_REQUIRE_THROW(series::slice("01032987583", 12), domain_error);
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif

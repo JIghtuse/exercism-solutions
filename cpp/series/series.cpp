@@ -1,4 +1,5 @@
 #include "series.h"
+#include <stdexcept>
 
 using std::experimental::string_view;
 
@@ -13,6 +14,9 @@ std::vector<int> series::digits(string_view sv)
 
 std::vector<std::vector<int>> series::slice(string_view sv, std::size_t size)
 {
+    if (size > sv.length()) {
+        throw std::domain_error("Not enough digits to slice");
+    }
     auto result = std::vector<std::vector<int>>{};
     result.reserve(1 + sv.length() / size);
 
