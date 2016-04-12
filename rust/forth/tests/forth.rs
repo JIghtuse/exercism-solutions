@@ -10,7 +10,6 @@ fn no_input_no_stack() {
 }
 
 #[test]
-#[ignore]
 fn numbers_just_get_pushed_onto_the_stack() {
     let mut f = Forth::new();
     f.eval("1 2 3 4 5 -1");
