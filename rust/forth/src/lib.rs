@@ -13,11 +13,14 @@ pub enum Error {
 
 impl Forth {
     pub fn new() -> Forth {
+        Forth
     }
 
     pub fn format_stack(&self) -> String {
+        String::new()
     }
 
     pub fn eval(&mut self, input: &str) -> ForthResult {
+        Err(Error::InvalidWord)
     }
 }
