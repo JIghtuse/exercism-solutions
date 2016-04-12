@@ -7,7 +7,7 @@ pub type ForthResult = Result<(), Error>;
 
 #[derive(Default)]
 pub struct Forth {
-    stack: Vec<i32>,
+    stack: Vec<Value>,
 }
 
 #[derive(Debug, PartialEq)]
@@ -52,7 +52,7 @@ impl Forth {
             !(c.is_numeric() || "+-/*".contains(c))
         };
         for word in input.split(not_a_word) {
-            let n = try!(i32::from_str(word));
+            let n = try!(Value::from_str(word));
             self.stack.push(n);
         }
         Ok(())
