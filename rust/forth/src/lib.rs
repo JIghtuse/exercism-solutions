@@ -48,7 +48,10 @@ impl Forth {
     }
 
     pub fn eval(&mut self, input: &str) -> ForthResult {
-        for word in input.split_whitespace() {
+        let not_a_word = |c: char| {
+            !(c.is_numeric() || "+-/*".contains(c))
+        };
+        for word in input.split(not_a_word) {
             let n = try!(i32::from_str(word));
             self.stack.push(n);
         }

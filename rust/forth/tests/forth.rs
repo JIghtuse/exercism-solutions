@@ -17,7 +17,6 @@ fn numbers_just_get_pushed_onto_the_stack() {
 }
 
 #[test]
-#[ignore]
 fn non_word_characters_are_separators() {
     let mut f = Forth::new();
     // Note the Ogham Space Mark ( ), this is a spacing character.
