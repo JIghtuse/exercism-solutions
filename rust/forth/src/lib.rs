@@ -48,9 +48,7 @@ impl Forth {
     }
 
     pub fn eval(&mut self, input: &str) -> ForthResult {
-        let not_a_word = |c: char| {
-            !(c.is_numeric() || "+-/*".contains(c))
-        };
+        let not_a_word = |c: char| !(c.is_numeric() || "+-/*".contains(c));
         for word in input.split(not_a_word) {
             if let Ok(n) = Value::from_str(word) {
                 self.stack.push(n);
@@ -62,7 +60,7 @@ impl Forth {
                     "-" => a - b,
                     "*" => a * b,
                     "/" => a / b,
-                    _ => unreachable!()
+                    _ => unreachable!(),
                 };
                 self.stack.push(value)
             }
