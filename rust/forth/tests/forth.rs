@@ -75,7 +75,6 @@ fn division_error() {
 }
 
 #[test]
-#[ignore]
 fn division_by_zero() {
     let mut f = Forth::new();
     assert_eq!(

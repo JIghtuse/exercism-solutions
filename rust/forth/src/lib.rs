@@ -59,7 +59,13 @@ impl Forth {
                     "+" => a + b,
                     "-" => a - b,
                     "*" => a * b,
-                    "/" => a / b,
+                    "/" => {
+                        if b == 0 {
+                            return Err(Error::DivisionByZero);
+                        } else {
+                            a / b
+                        }
+                    }
                     _ => unreachable!(),
                 };
                 self.stack.push(value)
