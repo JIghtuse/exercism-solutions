@@ -52,8 +52,20 @@ impl Forth {
             !(c.is_numeric() || "+-/*".contains(c))
         };
         for word in input.split(not_a_word) {
-            let n = try!(Value::from_str(word));
-            self.stack.push(n);
+            if let Ok(n) = Value::from_str(word) {
+                self.stack.push(n);
+            } else {
+                let b = try!(self.stack.pop().ok_or(Error::StackUnderflow));
+                let a = try!(self.stack.pop().ok_or(Error::StackUnderflow));
+                let value = match word {
+                    "+" => a + b,
+                    "-" => a - b,
+                    "*" => a * b,
+                    "/" => a / b,
+                    _ => unreachable!()
+                };
+                self.stack.push(value)
+            }
         }
         Ok(())
     }

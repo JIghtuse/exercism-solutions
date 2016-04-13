@@ -25,7 +25,6 @@ fn non_word_characters_are_separators() {
 }
 
 #[test]
-#[ignore]
 fn basic_arithmetic_1() {
     let mut f = Forth::new();
     f.eval("1 2 + 4 -");
@@ -33,7 +32,6 @@ fn basic_arithmetic_1() {
 }
 
 #[test]
-#[ignore]
 fn basic_arithmetic_2() {
     let mut f = Forth::new();
     f.eval("2 4 * 3 /");
@@ -41,7 +39,6 @@ fn basic_arithmetic_2() {
 }
 
 #[test]
-#[ignore]
 fn addition_error() {
     let mut f = Forth::new();
     assert_eq!(
@@ -51,7 +48,6 @@ fn addition_error() {
 }
 
 #[test]
-#[ignore]
 fn subtraction_error() {
     let mut f = Forth::new();
     assert_eq!(
@@ -61,7 +57,6 @@ fn subtraction_error() {
 }
 
 #[test]
-#[ignore]
 fn multiplication_error() {
     let mut f = Forth::new();
     assert_eq!(
@@ -71,7 +66,6 @@ fn multiplication_error() {
 }
 
 #[test]
-#[ignore]
 fn division_error() {
     let mut f = Forth::new();
     assert_eq!(
