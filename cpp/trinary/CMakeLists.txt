@@ -57,3 +57,4 @@ endif()
 
 # Run the tests on every build
 add_custom_command(TARGET ${exercise} POST_BUILD COMMAND ${exercise})
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
