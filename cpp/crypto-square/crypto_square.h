@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 namespace crypto_square {
 
@@ -11,6 +12,7 @@ public:
     cipher(const std::string& message);
     std::string normalize_plain_text() const;
     Size size() const;
+    std::vector<std::string> plain_text_segments() const;
 private:
     std::string m_normalized_message;
     Size m_rows;

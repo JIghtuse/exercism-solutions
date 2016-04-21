@@ -38,4 +38,14 @@ Size cipher::size() const
     return m_cols;
 }
 
+std::vector<std::string> cipher::plain_text_segments() const
+{
+    auto result = std::vector<std::string>{};
+    for (auto i = Size{0}; i < m_normalized_message.length(); i += m_cols) {
+        auto count = std::min(m_cols, m_normalized_message.length() - i);
+        result.emplace_back(m_normalized_message.substr(i, count));
+    }
+    return result;
+}
+
 } // namespace crypto_square

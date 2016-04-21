@@ -27,7 +27,6 @@ BOOST_AUTO_TEST_CASE(size_of_non_perfect_square)
     BOOST_REQUIRE_EQUAL(4U, crypto_square::cipher("123456789abc").size());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(plain_text_segments_from_phrase)
 {
     const std::vector<std::string> expected{"neverv", "exthin", "eheart", "withid", "lewoes"};
@@ -46,6 +45,7 @@ BOOST_AUTO_TEST_CASE(plain_text_segments_from_complex_phrase)
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), actual.begin(), actual.end());
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(cipher_text_short_phrase)
 {
     BOOST_REQUIRE_EQUAL("tasneyinicdsmiohooelntuillibsuuml",
