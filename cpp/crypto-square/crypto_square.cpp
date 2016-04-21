@@ -17,20 +17,20 @@ std::pair<Size, Size> calculate_size(Size length)
 }
 
 cipher::cipher(const std::string& message)
-    : m_normalized_message{}
+    : m_message{}
 {
     for (auto c: message) {
         if (std::isalnum(c)) {
-            m_normalized_message += std::tolower(c);
+            m_message += std::tolower(c);
         }
     }
 
-    std::tie(m_rows, m_cols) = calculate_size(m_normalized_message.length());
+    std::tie(m_rows, m_cols) = calculate_size(m_message.length());
 }
 
 std::string cipher::normalize_plain_text() const
 {
-    return m_normalized_message;
+    return m_message;
 }
 
 Size cipher::size() const
@@ -41,21 +41,21 @@ Size cipher::size() const
 std::vector<std::string> cipher::plain_text_segments() const
 {
     auto result = std::vector<std::string>{};
-    for (auto i = Size{0}; i < m_normalized_message.length(); i += m_cols) {
-        auto count = std::min(m_cols, m_normalized_message.length() - i);
-        result.emplace_back(m_normalized_message.substr(i, count));
+    for (auto i = Size{0}; i < m_message.length(); i += m_cols) {
+        auto count = std::min(m_cols, m_message.length() - i);
+        result.emplace_back(m_message.substr(i, count));
     }
     return result;
 }
 
 std::string cipher::cipher_text() const
 {
-    auto result = std::string(m_normalized_message.length(), ' ');
+    auto result = std::string(m_message.length(), ' ');
     auto counter = Size{0};
 
     for (auto i = Size{0}; i < m_cols; ++i) {
-        for (auto j = i; j < m_normalized_message.length(); j += m_cols) {
-            result[counter++] = m_normalized_message[j];
+        for (auto j = i; j < m_message.length(); j += m_cols) {
+            result[counter++] = m_message[j];
         }
     }
     return result;

@@ -15,7 +15,7 @@ public:
     std::vector<std::string> plain_text_segments() const;
     std::string cipher_text() const;
 private:
-    std::string m_normalized_message;
+    std::string m_message;
     Size m_rows;
     Size m_cols;
 };
