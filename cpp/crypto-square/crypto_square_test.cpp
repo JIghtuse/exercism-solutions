@@ -57,7 +57,6 @@ BOOST_AUTO_TEST_CASE(cipher_text_long_phrase)
         crypto_square::cipher("We all know interspecies romance is weird.").cipher_text());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(normalized_cipher_text1)
 {
     BOOST_REQUIRE_EQUAL("msemoa anindn inndla etltsh ui",
@@ -69,4 +68,5 @@ BOOST_AUTO_TEST_CASE(normalized_cipher_text2)
     BOOST_REQUIRE_EQUAL("vrela epems etpao oirpo",
         crypto_square::cipher("Vampires are people too!").normalized_cipher_text());
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif

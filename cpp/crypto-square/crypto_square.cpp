@@ -48,17 +48,24 @@ std::vector<std::string> cipher::plain_text_segments() const
     return result;
 }
 
-std::string cipher::cipher_text() const
+std::string cipher::cipher_text(bool with_spaces) const
 {
-    auto result = std::string(m_message.length(), ' ');
-    auto counter = Size{0};
+    auto result = std::string{};
 
     for (auto i = Size{0}; i < m_cols; ++i) {
         for (auto j = i; j < m_message.length(); j += m_cols) {
-            result[counter++] = m_message[j];
+            result.push_back(m_message[j]);
+        }
+        if (with_spaces) {
+            result.push_back(' ');
         }
     }
     return result;
+}
+
+std::string cipher::normalized_cipher_text() const
+{
+    return cipher_text(true);
 }
 
 } // namespace crypto_square
