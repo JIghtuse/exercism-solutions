@@ -45,7 +45,6 @@ BOOST_AUTO_TEST_CASE(plain_text_segments_from_complex_phrase)
     BOOST_REQUIRE_EQUAL_COLLECTIONS(expected.begin(), expected.end(), actual.begin(), actual.end());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(cipher_text_short_phrase)
 {
     BOOST_REQUIRE_EQUAL("tasneyinicdsmiohooelntuillibsuuml",
@@ -58,6 +57,7 @@ BOOST_AUTO_TEST_CASE(cipher_text_long_phrase)
         crypto_square::cipher("We all know interspecies romance is weird.").cipher_text());
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(normalized_cipher_text1)
 {
     BOOST_REQUIRE_EQUAL("msemoa anindn inndla etltsh ui",

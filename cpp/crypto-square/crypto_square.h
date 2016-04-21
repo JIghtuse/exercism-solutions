@@ -13,6 +13,7 @@ public:
     std::string normalize_plain_text() const;
     Size size() const;
     std::vector<std::string> plain_text_segments() const;
+    std::string cipher_text() const;
 private:
     std::string m_normalized_message;
     Size m_rows;

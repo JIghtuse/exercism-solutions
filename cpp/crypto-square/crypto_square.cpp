@@ -48,4 +48,17 @@ std::vector<std::string> cipher::plain_text_segments() const
     return result;
 }
 
+std::string cipher::cipher_text() const
+{
+    auto result = std::string(m_normalized_message.length(), ' ');
+    auto counter = Size{0};
+
+    for (auto i = Size{0}; i < m_cols; ++i) {
+        for (auto j = i; j < m_normalized_message.length(); j += m_cols) {
+            result[counter++] = m_normalized_message[j];
+        }
+    }
+    return result;
+}
+
 } // namespace crypto_square
