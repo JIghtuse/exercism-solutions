@@ -7,8 +7,13 @@ namespace crypto_square {
 
 std::pair<Size, Size> calculate_size(Size length)
 {
-    auto square_root = std::floor(std::sqrt(length));
-    return std::make_pair(square_root, square_root);
+    auto square_root = std::sqrt(length);
+    auto rows = std::floor(square_root);
+    auto cols = std::ceil(square_root);
+    if (rows * cols != length) {
+        ++rows;
+    }
+    return std::make_pair(rows, cols);
 }
 
 cipher::cipher(const std::string& message)
