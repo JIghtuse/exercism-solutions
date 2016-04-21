@@ -7,12 +7,12 @@ BOOST_AUTO_TEST_CASE(normalize_strange_characters)
     BOOST_REQUIRE_EQUAL("splunk", crypto_square::cipher("s#$%^&plunk").normalize_plain_text());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(normalize_numbers)
 {
     BOOST_REQUIRE_EQUAL("123go", crypto_square::cipher("1, 2, 3 GO!").normalize_plain_text());
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(size_of_small_square)
 {
     BOOST_REQUIRE_EQUAL(2U, crypto_square::cipher("1234").size());

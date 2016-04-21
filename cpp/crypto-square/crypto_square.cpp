@@ -8,7 +8,7 @@ cipher::cipher(const std::string& message)
 {
     for (auto c: message) {
         if (std::isalnum(c)) {
-            m_normalized_message += c;
+            m_normalized_message += std::tolower(c);
         }
     }
 }
