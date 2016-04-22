@@ -4,6 +4,8 @@
 
 namespace scrabble_score {
 
-int score(std::experimental::string_view word);
+using Score = int;
+
+Score score(std::experimental::string_view word);
 
 } // namespace scrabble_score

@@ -12,7 +12,6 @@ BOOST_AUTO_TEST_CASE(scores_a_very_short_word)
     BOOST_REQUIRE_EQUAL(1, scrabble_score::score("a"));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(scores_the_word_by_the_number_of_letters)
 {
     BOOST_REQUIRE_EQUAL(6, scrabble_score::score("street"));
@@ -32,4 +31,5 @@ BOOST_AUTO_TEST_CASE(scores_z_word)
 {
     BOOST_REQUIRE_EQUAL(12, scrabble_score::score("zoo"));
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif
