@@ -13,9 +13,9 @@ set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 find_package(Boost 1.55 REQUIRED COMPONENTS unit_test_framework date_time regex)
 
-# Enable C++11 features on gcc/clang
+# Enable C++14 features on gcc/clang
 if("${CMAKE_CXX_COMPILER_ID}" MATCHES "(GNU|Clang)")
-    set(CMAKE_CXX_FLAGS "-std=c++11")
+    set(CMAKE_CXX_FLAGS "-std=c++14")
 endif()
 
 # Configure to run all the tests?
@@ -57,3 +57,5 @@ endif()
 
 # Run the tests on every build
 add_custom_command(TARGET ${exercise} POST_BUILD COMMAND ${exercise})
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
