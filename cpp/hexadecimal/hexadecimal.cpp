@@ -26,7 +26,13 @@ inline optional<int> hex_char_to_digit(char c)
 
 int hexadecimal::convert(std::experimental::string_view sv)
 {
-    return std::accumulate(sv.begin(), sv.end(), 0, [](int n, char c) {
-        return kHexBase * n + *hex_char_to_digit(c);
-    });
+    int result = 0;
+    for (auto c : sv) {
+        auto digit = hex_char_to_digit(c);
+        if (!digit) {
+            return 0;
+        }
+        result = kHexBase * result + *digit;
+    }
+    return result;
 }
