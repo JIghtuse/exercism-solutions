@@ -7,12 +7,12 @@ BOOST_AUTO_TEST_CASE(hex_1_is_decimal_1)
     BOOST_REQUIRE_EQUAL(0x1, hexadecimal::convert("1"));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(hex_c_is_decimal_12)
 {
     BOOST_REQUIRE_EQUAL(0xc, hexadecimal::convert("c"));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(hex_10_is_decimal_16)
 {
     BOOST_REQUIRE_EQUAL(0x10, hexadecimal::convert("10"));
