@@ -99,6 +99,13 @@ impl Forth {
                         self.stack.push(b);
                         self.stack.push(a);
                     }
+                    "over" => {
+                        let b = try!(self.pop_value());
+                        let a = try!(self.pop_value());
+                        self.stack.push(a);
+                        self.stack.push(b);
+                        self.stack.push(a);
+                    }
                     _ => unreachable!(),
                 }
             }
