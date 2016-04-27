@@ -93,6 +93,12 @@ impl Forth {
                     "drop" => {
                         try!(self.pop_value());
                     }
+                    "swap" => {
+                        let b = try!(self.pop_value());
+                        let a = try!(self.pop_value());
+                        self.stack.push(b);
+                        self.stack.push(a);
+                    }
                     _ => unreachable!(),
                 }
             }

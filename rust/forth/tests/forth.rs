@@ -130,7 +130,6 @@ fn drop_error() {
 }
 
 #[test]
-#[ignore]
 fn swap() {
     let mut f = Forth::new();
     f.eval("1 2 swap");
@@ -138,7 +137,6 @@ fn swap() {
 }
 
 #[test]
-#[ignore]
 fn swap_with_three() {
     let mut f = Forth::new();
     f.eval("1 2 3 swap");
@@ -146,7 +144,6 @@ fn swap_with_three() {
 }
 
 #[test]
-#[ignore]
 fn swap_error() {
     let mut f = Forth::new();
     assert_eq!(
