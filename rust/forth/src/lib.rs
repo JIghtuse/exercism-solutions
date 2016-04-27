@@ -61,21 +61,21 @@ impl Forth {
             if let Ok(n) = Value::from_str(word) {
                 self.stack.push(n);
             } else {
-                let value = match word.to_lowercase().as_str() {
+                match word.to_lowercase().as_str() {
                     "+" => {
                         let b = try!(self.pop_value());
                         let a = try!(self.pop_value());
-                        a + b
+                        self.stack.push(a + b);
                     }
                     "-" => {
                         let b = try!(self.pop_value());
                         let a = try!(self.pop_value());
-                        a - b
+                        self.stack.push(a - b);
                     }
                     "*" => {
                         let b = try!(self.pop_value());
                         let a = try!(self.pop_value());
-                        a * b
+                        self.stack.push(a * b);
                     }
                     "/" => {
                         let b = try!(self.pop_value());
@@ -83,15 +83,15 @@ impl Forth {
                         if b == 0 {
                             return Err(Error::DivisionByZero);
                         } else {
-                            a / b
+                            self.stack.push(a / b);
                         }
                     }
                     "dup" => {
-                        try!(self.top())
+                        let a = try!(self.top());
+                        self.stack.push(a);
                     }
                     _ => unreachable!(),
-                };
-                self.stack.push(value)
+                }
             }
         }
         Ok(())
