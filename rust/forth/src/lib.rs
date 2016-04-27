@@ -51,13 +51,17 @@ impl Forth {
         self.stack.pop().ok_or(Error::StackUnderflow)
     }
 
+    fn top(&mut self) -> Result<Value, Error> {
+        self.stack.last().cloned().ok_or(Error::StackUnderflow)
+    }
+
     pub fn eval(&mut self, input: &str) -> ForthResult {
-        let not_a_word = |c: char| !(c.is_numeric() || "+-/*".contains(c));
+        let not_a_word = |c: char| !(c.is_alphanumeric() || "+-/*".contains(c));
         for word in input.split(not_a_word) {
             if let Ok(n) = Value::from_str(word) {
                 self.stack.push(n);
             } else {
-                let value = match word {
+                let value = match word.to_lowercase().as_str() {
                     "+" => {
                         let b = try!(self.pop_value());
                         let a = try!(self.pop_value());
@@ -81,6 +85,9 @@ impl Forth {
                         } else {
                             a / b
                         }
+                    }
+                    "dup" => {
+                        try!(self.top())
                     }
                     _ => unreachable!(),
                 };
