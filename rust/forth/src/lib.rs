@@ -90,6 +90,9 @@ impl Forth {
                         let a = try!(self.top());
                         self.stack.push(a);
                     }
+                    "drop" => {
+                        try!(self.pop_value());
+                    }
                     _ => unreachable!(),
                 }
             }

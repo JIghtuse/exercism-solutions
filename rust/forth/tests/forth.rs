@@ -107,7 +107,6 @@ fn dup_error() {
 }
 
 #[test]
-#[ignore]
 fn drop() {
     let mut f = Forth::new();
     f.eval("1 drop");
@@ -115,7 +114,6 @@ fn drop() {
 }
 
 #[test]
-#[ignore]
 fn drop_with_two() {
     let mut f = Forth::new();
     f.eval("1 2 drop");
@@ -123,7 +121,6 @@ fn drop_with_two() {
 }
 
 #[test]
-#[ignore]
 fn drop_error() {
     let mut f = Forth::new();
     assert_eq!(
