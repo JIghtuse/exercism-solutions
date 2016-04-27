@@ -47,19 +47,35 @@ impl Forth {
         join(&self.stack, " ")
     }
 
+    fn pop_value(&mut self) -> Result<Value, Error> {
+        self.stack.pop().ok_or(Error::StackUnderflow)
+    }
+
     pub fn eval(&mut self, input: &str) -> ForthResult {
         let not_a_word = |c: char| !(c.is_numeric() || "+-/*".contains(c));
         for word in input.split(not_a_word) {
             if let Ok(n) = Value::from_str(word) {
                 self.stack.push(n);
             } else {
-                let b = try!(self.stack.pop().ok_or(Error::StackUnderflow));
-                let a = try!(self.stack.pop().ok_or(Error::StackUnderflow));
                 let value = match word {
-                    "+" => a + b,
-                    "-" => a - b,
-                    "*" => a * b,
+                    "+" => {
+                        let b = try!(self.pop_value());
+                        let a = try!(self.pop_value());
+                        a + b
+                    }
+                    "-" => {
+                        let b = try!(self.pop_value());
+                        let a = try!(self.pop_value());
+                        a - b
+                    }
+                    "*" => {
+                        let b = try!(self.pop_value());
+                        let a = try!(self.pop_value());
+                        a * b
+                    }
                     "/" => {
+                        let b = try!(self.pop_value());
+                        let a = try!(self.pop_value());
                         if b == 0 {
                             return Err(Error::DivisionByZero);
                         } else {
