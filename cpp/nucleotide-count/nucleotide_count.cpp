@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <stdexcept>
 #include "nucleotide_count.h"
 
@@ -9,7 +8,7 @@ const string kNucleotides{ "ACGT" };
 
 inline bool is_valid_nucleotide(char c)
 {
-    return find(kNucleotides.begin(), kNucleotides.end(), c) != kNucleotides.end();
+    return kNucleotides.find(c) != string::npos;
 }
 
 dna::counter::counter(string_view strand)
