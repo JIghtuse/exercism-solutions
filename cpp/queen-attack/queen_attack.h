@@ -8,11 +8,7 @@ using Position = std::pair<int, int>;
 
 class chess_board {
 public:
-    chess_board(Position w = { 0, 3 }, Position b = { 7, 3 })
-        : white_pos{ w }
-        , black_pos{ b }
-    {
-    }
+    chess_board(Position w = { 0, 3 }, Position b = { 7, 3 });
     Position white() const;
     Position black() const;
 
