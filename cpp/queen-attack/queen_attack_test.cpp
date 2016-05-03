@@ -11,7 +11,6 @@ BOOST_AUTO_TEST_CASE(queens_in_default_positions)
     BOOST_REQUIRE_EQUAL(std::make_pair(7, 3), board.black());
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(initialized_with_specific_positions)
 {
     const auto white = std::make_pair(3, 7);
@@ -22,6 +21,7 @@ BOOST_AUTO_TEST_CASE(initialized_with_specific_positions)
     BOOST_REQUIRE_EQUAL(black, board.black());
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(queen_positions_must_be_distinct)
 {
     const auto pos = std::make_pair(3, 7);

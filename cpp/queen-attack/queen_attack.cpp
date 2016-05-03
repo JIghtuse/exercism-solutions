@@ -4,12 +4,12 @@ namespace queen_attack {
 
 std::pair<int, int> chess_board::white() const
 {
-    return { 0, 3 };
+    return white_pos;
 }
 
 std::pair<int, int> chess_board::black() const
 {
-    return { 7, 3 };
+    return black_pos;
 }
 
 } // namespace queen_attack
