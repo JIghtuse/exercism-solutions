@@ -55,4 +55,13 @@ chess_board::operator std::string() const
     return oss.str();
 }
 
+bool chess_board::can_attack() const
+{
+    auto dx = white_pos.first - black_pos.first;
+    auto dy = white_pos.second - black_pos.second;
+    return dx * dx == dy * dy
+        || dx == 0 && dy != 0
+        || dy == 0 && dx != 0;
+}
+
 } // namespace queen_attack

@@ -13,6 +13,7 @@ public:
     Position white() const;
     Position black() const;
     explicit operator std::string() const;
+    bool can_attack() const;
 
 private:
     Position white_pos;
