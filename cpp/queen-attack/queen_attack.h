@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <tuple>
 
 namespace queen_attack {
@@ -11,6 +12,7 @@ public:
     chess_board(Position w = { 0, 3 }, Position b = { 7, 3 });
     Position white() const;
     Position black() const;
+    explicit operator std::string() const;
 
 private:
     Position white_pos;

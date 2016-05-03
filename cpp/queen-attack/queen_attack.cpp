@@ -1,5 +1,16 @@
 #include "queen_attack.h"
+#include <sstream>
 #include <stdexcept>
+
+namespace {
+
+constexpr int kFieldWidth = 8;
+constexpr int kFieldHeight = 8;
+constexpr char kEmptyCell = '_';
+constexpr char kBlackQueenCell = 'B';
+constexpr char kWhiteQueenCell = 'W';
+
+} // namespace
 
 namespace queen_attack {
 
@@ -20,6 +31,28 @@ Position chess_board::white() const
 Position chess_board::black() const
 {
     return black_pos;
+}
+
+chess_board::operator std::string() const
+{
+    std::ostringstream oss;
+
+    for (auto i = 0; i < kFieldHeight; ++i) {
+        for (auto j = 0; j < kFieldWidth; ++j) {
+            if (i == white_pos.first && j == white_pos.second) {
+                oss << kWhiteQueenCell;
+            } else if (i == black_pos.first && j == black_pos.second) {
+                oss << kBlackQueenCell;
+            } else {
+                oss << kEmptyCell;
+            }
+            if (j != kFieldWidth - 1) {
+                oss << ' ';
+            }
+        }
+        oss << '\n';
+    }
+    return oss.str();
 }
 
 } // namespace queen_attack
