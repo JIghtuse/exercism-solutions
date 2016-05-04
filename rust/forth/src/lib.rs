@@ -1,3 +1,7 @@
+extern crate regex;
+use regex::Regex;
+
+use std::collections::HashMap;
 use std::io::prelude::*;
 use std::fmt;
 use std::str::FromStr;
@@ -8,6 +12,7 @@ pub type ForthResult = Result<(), Error>;
 #[derive(Default)]
 pub struct Forth {
     stack: Vec<Value>,
+    macros: HashMap<String, String>,
 }
 
 #[derive(Debug, PartialEq)]
@@ -40,7 +45,10 @@ fn join<T>(v: &[T], glue: &str) -> String
 
 impl Forth {
     pub fn new() -> Forth {
-        Forth { stack: vec![] }
+        Forth {
+            stack: vec![],
+            macros: HashMap::new(),
+        }
     }
 
     pub fn format_stack(&self) -> String {
@@ -57,7 +65,19 @@ impl Forth {
 
     pub fn eval(&mut self, input: &str) -> ForthResult {
         let not_a_word = |c: char| !(c.is_alphanumeric() || "+-/*".contains(c));
-        for word in input.split(not_a_word) {
+        let re = Regex::new(r": ([:alpha:]+) ([^;]+);").unwrap();
+        let mut macro_present = false;
+
+        for word in re.captures_iter(input) {
+            let name = word.at(1).unwrap().to_lowercase();
+            self.macros.entry(name).or_insert(word.at(2).unwrap().to_string());
+            macro_present = true;
+        }
+        if macro_present {
+            return Ok(());
+        }
+
+        for word in input.split(&not_a_word) {
             if let Ok(n) = Value::from_str(word) {
                 self.stack.push(n);
             } else {
@@ -106,7 +126,18 @@ impl Forth {
                         self.stack.push(b);
                         self.stack.push(a);
                     }
-                    _ => unreachable!(),
+                    "" => (),
+                    possible_macro => {
+                        if self.macros.contains_key(possible_macro) {
+                            let macros = self.macros.clone();
+                            let res = self.eval(&macros[possible_macro]);
+                            if res.is_err() {
+                                return res;
+                            }
+                        } else {
+                            return Err(Error::UnknownWord);
+                        }
+                    }
                 }
             }
         }

@@ -1,3 +1,6 @@
 [package]
 name = "forth"
 version = "0.0.0"
+
+[dependencies]
+regex = "0.1"

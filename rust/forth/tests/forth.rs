@@ -184,7 +184,6 @@ fn over_error() {
 }
 
 #[test]
-#[ignore]
 fn defining_a_new_word() {
     let mut f = Forth::new();
     f.eval(": CoUnT 1 2 3 ;");
@@ -248,7 +247,6 @@ fn malformed_word_definition() {
 }
 
 #[test]
-#[ignore]
 fn calling_non_existing_word() {
     let mut f = Forth::new();
     assert_eq!(
