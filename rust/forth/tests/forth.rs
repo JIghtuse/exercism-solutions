@@ -192,7 +192,6 @@ fn defining_a_new_word() {
 }
 
 #[test]
-#[ignore]
 fn redefining_an_existing_word() {
     let mut f = Forth::new();
     f.eval(": foo dup ;");
@@ -202,7 +201,6 @@ fn redefining_an_existing_word() {
 }
 
 #[test]
-#[ignore]
 fn redefining_an_existing_built_in_word() {
     let mut f = Forth::new();
     f.eval(": swap dup ;");
@@ -211,7 +209,6 @@ fn redefining_an_existing_built_in_word() {
 }
 
 #[test]
-#[ignore]
 fn defining_words_with_odd_characters() {
     let mut f = Forth::new();
     f.eval(": € 220371 ; €");

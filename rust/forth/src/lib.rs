@@ -70,7 +70,8 @@ impl Forth {
 
         for word in re.captures_iter(input) {
             let name = word.at(1).unwrap().to_lowercase();
-            self.macros.entry(name).or_insert(word.at(2).unwrap().to_string());
+            let entry = self.macros.entry(name).or_insert(word.at(2).unwrap().to_string());
+            *entry = word.at(2).unwrap().to_string();
             macro_present = true;
         }
         if macro_present {
@@ -81,7 +82,16 @@ impl Forth {
             if let Ok(n) = Value::from_str(word) {
                 self.stack.push(n);
             } else {
-                match word.to_lowercase().as_str() {
+                let word = word.to_lowercase();
+                if self.macros.contains_key(word.as_str()) {
+                    let macros = self.macros.clone();
+                    let res = self.eval(&macros[word.as_str()]);
+                    if res.is_err() {
+                        return res;
+                    }
+                    continue;
+                }
+                match word.as_str() {
                     "+" => {
                         let b = try!(self.pop_value());
                         let a = try!(self.pop_value());
@@ -127,17 +137,7 @@ impl Forth {
                         self.stack.push(a);
                     }
                     "" => (),
-                    possible_macro => {
-                        if self.macros.contains_key(possible_macro) {
-                            let macros = self.macros.clone();
-                            let res = self.eval(&macros[possible_macro]);
-                            if res.is_err() {
-                                return res;
-                            }
-                        } else {
-                            return Err(Error::UnknownWord);
-                        }
-                    }
+                    _ => return Err(Error::UnknownWord),
                 }
             }
         }
