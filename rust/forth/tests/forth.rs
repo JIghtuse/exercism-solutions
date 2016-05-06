@@ -216,7 +216,6 @@ fn defining_words_with_odd_characters() {
 }
 
 #[test]
-#[ignore]
 fn defining_a_number() {
     let mut f = Forth::new();
     assert_eq!(
@@ -226,7 +225,6 @@ fn defining_a_number() {
 }
 
 #[test]
-#[ignore]
 fn malformed_word_definition() {
     let mut f = Forth::new();
     assert_eq!(

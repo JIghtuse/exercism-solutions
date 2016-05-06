@@ -64,21 +64,31 @@ impl Forth {
     }
 
     pub fn eval(&mut self, input: &str) -> ForthResult {
-        let not_a_word = |c: char| !(c.is_alphanumeric() || "+-/*".contains(c));
-        let re = Regex::new(r": ([:alpha:]+) ([^;]+);").unwrap();
+        let whitespace = |c: char| c.is_whitespace() || "\u{1680}\u{0001}\u{0000}".contains(c);
+
+        let re_macro = Regex::new(r":\s+(\S+)\s+([^;]+);").unwrap();
+        let re_malformed_macro = Regex::new(r":.*").unwrap();
         let mut macro_present = false;
 
-        for word in re.captures_iter(input) {
+        for word in re_macro.captures_iter(input) {
             let name = word.at(1).unwrap().to_lowercase();
+            if name.chars().any(|c| c.is_numeric()) {
+                return Err(Error::InvalidWord);
+            }
             let entry = self.macros.entry(name).or_insert(word.at(2).unwrap().to_string());
             *entry = word.at(2).unwrap().to_string();
             macro_present = true;
         }
-        if macro_present {
-            return Ok(());
+        if !macro_present && re_malformed_macro.is_match(input) {
+            return Err(Error::InvalidWord);
         }
+        let input = if macro_present {
+            input.split(';').skip(1).next().unwrap()
+        } else {
+            input
+        };
 
-        for word in input.split(&not_a_word) {
+        for word in input.split(&whitespace) {
             if let Ok(n) = Value::from_str(word) {
                 self.stack.push(n);
             } else {
