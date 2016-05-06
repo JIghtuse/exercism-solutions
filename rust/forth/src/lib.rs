@@ -75,8 +75,8 @@ impl Forth {
             if name.chars().any(|c| c.is_numeric()) {
                 return Err(Error::InvalidWord);
             }
-            let entry = self.macros.entry(name).or_insert(word.at(2).unwrap().to_string());
-            *entry = word.at(2).unwrap().to_string();
+            let value = word.at(2).unwrap().to_string();
+            self.macros.insert(name, value);
             macro_present = true;
         }
         if !macro_present && re_malformed_macro.is_match(input) {
