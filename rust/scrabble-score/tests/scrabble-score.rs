@@ -43,7 +43,6 @@ fn long_mixed_case_word() {
 }
 
 #[test]
-#[ignore]
 fn non_english_scrabble_letters_do_not_score() {
     assert_eq!(score("pinata"), 8);
     assert_eq!(score("piñata"), 7);

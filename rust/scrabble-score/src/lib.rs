@@ -9,7 +9,7 @@ fn letter_score(c: char) -> u32 {
         'k' => 5,
         'j' | 'x' => 8,
         'q' | 'z' => 10,
-        _ => unreachable!(),
+        _ => 0,
     }
 }
 
