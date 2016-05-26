@@ -13,7 +13,6 @@ fn scoring_is_case_insensitive() {
 }
 
 #[test]
-#[ignore]
 fn f_is_worth_four() {
     assert_eq!(score("f"), 4);
 }
