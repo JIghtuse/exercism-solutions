@@ -8,7 +8,6 @@ fn a_is_worth_one_point() {
 }
 
 #[test]
-#[ignore]
 fn scoring_is_case_insensitive() {
     assert_eq!(score("A"), 1);
 }
