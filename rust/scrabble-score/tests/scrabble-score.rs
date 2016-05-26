@@ -18,31 +18,26 @@ fn f_is_worth_four() {
 }
 
 #[test]
-#[ignore]
 fn two_one_point_letters_make_a_two_point_word() {
     assert_eq!(score("at"), 2);
 }
 
 #[test]
-#[ignore]
 fn three_letter_word() {
     assert_eq!(score("zoo"), 12);
 }
 
 #[test]
-#[ignore]
 fn medium_word() {
     assert_eq!(score("street"), 6);
 }
 
 #[test]
-#[ignore]
 fn longer_words_with_valuable_letters() {
     assert_eq!(score("quirky"), 22);
 }
 
 #[test]
-#[ignore]
 fn long_mixed_case_word() {
     assert_eq!(score("OxyphenButazone"), 41);
 }
@@ -55,7 +50,6 @@ fn non_english_scrabble_letters_do_not_score() {
 }
 
 #[test]
-#[ignore]
 fn empty_words_are_worth_zero() {
     assert_eq!(score(""), 0);
 }
