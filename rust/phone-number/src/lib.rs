@@ -2,7 +2,7 @@ fn extract_number(digits: Vec<&str>) -> Option<String> {
     match digits.len() {
         10 => Some(digits.join("")),
         11 => {
-            if Some('1') == digits[0].chars().next() {
+            if digits[0].starts_with('1') {
                 Some(digits[1..].join(""))
             } else {
                 None

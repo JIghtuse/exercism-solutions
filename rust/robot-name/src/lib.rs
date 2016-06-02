@@ -3,6 +3,7 @@ extern crate num;
 
 use rand::distributions::{IndependentSample, Range};
 
+#[derive(Default)]
 pub struct Robot {
     name: String,
 }
@@ -13,7 +14,7 @@ fn random_from_range(rng: &mut rand::ThreadRng, begin: u8, end: u8) -> u8 {
 }
 
 fn random_char(rng: &mut rand::ThreadRng) -> char {
-    random_from_range(rng, 'A' as u8, 'Z' as u8) as char
+    random_from_range(rng, b'A', b'Z') as char
 }
 
 fn next_name() -> String {

@@ -1,12 +1,13 @@
 use std::collections::HashMap;
 
+#[derive(Default)]
 pub struct School {
     grades: HashMap<usize, Vec<String>>,
 }
 
 impl School {
     pub fn new() -> School {
-        School { grades: HashMap::new() }
+        School::default()
     }
     pub fn add(&mut self, grade: usize, name: &str) {
         let entry = self.grades.entry(grade).or_insert(vec![]);
