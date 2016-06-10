@@ -13,7 +13,6 @@ fn empty_equals_empty() {
 }
 
 #[test]
-#[ignore]
 fn test_empty_is_a_sublist_of_anything() {
     assert_eq!(
         Comparison::Sublist,
@@ -22,7 +21,6 @@ fn test_empty_is_a_sublist_of_anything() {
 }
 
 #[test]
-#[ignore]
 fn test_anything_is_a_superlist_of_empty() {
     assert_eq!(
         Comparison::Superlist,
@@ -31,7 +29,6 @@ fn test_anything_is_a_superlist_of_empty() {
 }
 
 #[test]
-#[ignore]
 fn test_1_is_not_2() {
     assert_eq!(
         Comparison::Unequal,
