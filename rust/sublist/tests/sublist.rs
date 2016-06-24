@@ -37,7 +37,6 @@ fn test_1_is_not_2() {
 }
 
 #[test]
-#[ignore]
 fn test_compare_larger_equal_lists() {
     use std::iter::repeat;
 
