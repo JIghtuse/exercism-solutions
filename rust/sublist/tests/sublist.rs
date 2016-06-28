@@ -49,7 +49,6 @@ fn test_compare_larger_equal_lists() {
 }
 
 #[test]
-#[ignore]
 fn test_sublist_at_start() {
     assert_eq!(
         Comparison::Sublist,
@@ -58,7 +57,6 @@ fn test_sublist_at_start() {
 }
 
 #[test]
-#[ignore]
 fn sublist_in_middle() {
     assert_eq!(
         Comparison::Sublist,
@@ -67,7 +65,6 @@ fn sublist_in_middle() {
 }
 
 #[test]
-#[ignore]
 fn sublist_at_end() {
     assert_eq!(
         Comparison::Sublist,
@@ -76,7 +73,6 @@ fn sublist_at_end() {
 }
 
 #[test]
-#[ignore]
 fn partially_matching_sublist_at_start() {
     assert_eq!(
         Comparison::Sublist,
@@ -85,7 +81,6 @@ fn partially_matching_sublist_at_start() {
 }
 
 #[test]
-#[ignore]
 fn sublist_early_in_huge_list() {
     let huge: Vec<u32> = (1..1000000).collect();
 

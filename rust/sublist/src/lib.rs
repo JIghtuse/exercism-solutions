@@ -15,7 +15,13 @@ pub fn sublist<T: std::cmp::PartialEq>(needle: &[T], haystack: &[T]) -> Comparis
             if needle == haystack {
                 Comparison::Equal
             } else {
-                Comparison::Unequal
+                let length = needle.len();
+                let nwindows = haystack.len() - length + 1;
+                if (0..nwindows).any(|i| needle == &haystack[i..i + length]) {
+                    Comparison::Sublist
+                } else {
+                    Comparison::Unequal
+                }
             }
         }
     }
