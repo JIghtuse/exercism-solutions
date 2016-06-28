@@ -6,7 +6,9 @@ pub enum Comparison {
     Superlist,
 }
 
-pub fn sublist<T: std::cmp::PartialEq>(needle: &[T], haystack: &[T]) -> Comparison {
+pub fn sublist<T>(needle: &[T], haystack: &[T]) -> Comparison
+    where T: std::cmp::PartialEq
+{
     match (needle.is_empty(), haystack.is_empty()) {
         (true, true) => Comparison::Equal,
         (true, false) => Comparison::Sublist,
