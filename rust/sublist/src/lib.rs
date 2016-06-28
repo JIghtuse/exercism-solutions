@@ -20,20 +20,13 @@ fn is_sublist<T>(haystack: &[T], needle: &[T]) -> bool
 pub fn sublist<T>(needle: &[T], haystack: &[T]) -> Comparison
     where T: std::cmp::PartialEq
 {
-    match (needle.is_empty(), haystack.is_empty()) {
-        (true, true) => Comparison::Equal,
-        (true, false) => Comparison::Sublist,
-        (false, true) => Comparison::Superlist,
-        (false, false) => {
-            if needle == haystack {
-                Comparison::Equal
-            } else if is_sublist(haystack, needle) {
-                Comparison::Sublist
-            } else if is_sublist(needle, haystack) {
-                Comparison::Superlist
-            } else {
-                Comparison::Unequal
-            }
-        }
+    if needle == haystack {
+        Comparison::Equal
+    } else if is_sublist(haystack, needle) {
+        Comparison::Sublist
+    } else if is_sublist(needle, haystack) {
+        Comparison::Superlist
+    } else {
+        Comparison::Unequal
     }
 }
