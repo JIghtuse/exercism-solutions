@@ -6,12 +6,15 @@ pub enum Comparison {
     Superlist,
 }
 
-fn contains<T>(haystack: &[T], needle: &[T]) -> bool
+fn is_sublist<T>(haystack: &[T], needle: &[T]) -> bool
     where T: std::cmp::PartialEq
 {
-    let length = needle.len();
-    let nwindows = haystack.len() - length + 1;
-    (0..nwindows).any(|i| needle == &haystack[i..i + length])
+    if haystack.len() < needle.len() {
+        false
+    } else {
+        let nwindows = haystack.len() - needle.len() + 1;
+        (0..nwindows).any(|i| needle == &haystack[i..i + needle.len()])
+    }
 }
 
 pub fn sublist<T>(needle: &[T], haystack: &[T]) -> Comparison
@@ -24,12 +27,12 @@ pub fn sublist<T>(needle: &[T], haystack: &[T]) -> Comparison
         (false, false) => {
             if needle == haystack {
                 Comparison::Equal
+            } else if is_sublist(haystack, needle) {
+                Comparison::Sublist
+            } else if is_sublist(needle, haystack) {
+                Comparison::Superlist
             } else {
-                if contains(haystack, needle) {
-                    Comparison::Sublist
-                } else {
-                    Comparison::Unequal
-                }
+                Comparison::Unequal
             }
         }
     }
