@@ -9,12 +9,7 @@ pub enum Comparison {
 fn is_sublist<T>(haystack: &[T], needle: &[T]) -> bool
     where T: std::cmp::PartialEq
 {
-    if haystack.len() < needle.len() {
-        false
-    } else {
-        let nwindows = haystack.len() - needle.len() + 1;
-        (0..nwindows).any(|i| needle == &haystack[i..i + needle.len()])
-    }
+    needle.is_empty() || haystack.windows(needle.len()).any(|w| w == needle)
 }
 
 pub fn sublist<T>(needle: &[T], haystack: &[T]) -> Comparison
