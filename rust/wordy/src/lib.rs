@@ -1,5 +1,5 @@
 use std::num;
-use std::str::FromStr;
+use std::ops::{Add, Sub, Div, Mul};
 
 pub struct WordProblem {
     command: String,
@@ -16,25 +16,15 @@ impl From<num::ParseIntError> for Error {
     }
 }
 
-pub enum Operation {
-    Add,
-    Sub,
-    Mul,
-    Div,
-}
+pub type Operation = fn(i64, i64) -> i64;
 
-use Operation::*;
-
-impl FromStr for Operation {
-    type Err = Error;
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        match s {
-            "plus" => Ok(Add),
-            "minus" => Ok(Sub),
-            "divided" => Ok(Div),
-            "multiplied" => Ok(Mul),
-            _ => Err(Error::InvalidCommand),
-        }
+fn parse_operation(s: &str) -> Result<Operation, Error> {
+    match s {
+        "plus" => Ok(Add::add),
+        "minus" => Ok(Sub::sub),
+        "divided" => Ok(Div::div),
+        "multiplied" => Ok(Mul::mul),
+        _ => Err(Error::InvalidCommand),
     }
 }
 
@@ -55,20 +45,16 @@ impl WordProblem {
         let mut result = try!(first_op);
 
         while let Some(word) = split.next() {
-            let operation = try!(word.parse().map_err(Error::from));
+            let operation = try!(parse_operation(word));
             let word = split.next();
-            let word = match operation {
-                Operation::Div | Operation::Mul => split.next(),
-                _ => word,
+            let word = if operation == Div::div || operation == Mul::mul {
+                split.next()
+            } else {
+                word
             };
             let word = try!(word.ok_or(Error::InvalidCommand));
             let op: i64 = try!(word.trim_right_matches('?').parse());
-            result = match operation {
-                Operation::Add => result + op,
-                Operation::Sub => result - op,
-                Operation::Div => result / op,
-                Operation::Mul => result * op,
-            };
+            result = operation(result, op);
         }
         Ok(result)
     }
