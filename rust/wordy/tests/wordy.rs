@@ -9,28 +9,24 @@ fn addition() {
 }
 
 #[test]
-#[ignore]
 fn more_addition() {
     let command = "What is 53 plus 2?";
     assert_eq!(55, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn addition_with_negative_numbers() {
     let command = "What is -1 plus -10?";
     assert_eq!(-11, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn large_addition() {
     let command = "What is 123 plus 45678?";
     assert_eq!(45801, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn subtraction() {
     let command = "What is 4 minus -12?";
     assert_eq!(16, WordProblem::new(command).answer().unwrap());

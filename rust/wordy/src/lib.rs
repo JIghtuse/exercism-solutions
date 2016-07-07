@@ -33,6 +33,7 @@ impl WordProblem {
         let op2: i64 = try!(split[pos + 1].trim_right_matches('?').parse());
         match operator {
             "plus" => Ok(op1 + op2),
+            "minus" => Ok(op1 - op2),
             _ => Err(Error::InvalidCommand),
         }
     }
