@@ -45,49 +45,42 @@ fn division() {
 }
 
 #[test]
-#[ignore]
 fn multiple_additions() {
     let command = "What is 1 plus 1 plus 1?";
     assert_eq!(3, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn addition_and_subtraction() {
     let command = "What is 1 plus 5 minus -2?";
     assert_eq!(8, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn multiple_subtraction() {
     let command = "What is 20 minus 4 minus 13?";
     assert_eq!(3, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn subtraction_then_addition() {
     let command = "What is 17 minus 6 plus 3?";
     assert_eq!(14, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn multiple_multiplications() {
     let command = "What is 2 multiplied by -2 multiplied by 3?";
     assert_eq!(-12, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn addition_and_multiplication() {
     let command = "What is -3 plus 7 multiplied by -2?";
     assert_eq!(-8, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn multiple_divisions() {
     let command = "What is -12 divided by 2 divided by -3?";
     assert_eq!(2, WordProblem::new(command).answer().unwrap());

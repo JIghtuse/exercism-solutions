@@ -52,18 +52,25 @@ impl WordProblem {
             res = split[pos].parse::<i64>().map_err(Error::from);
             pos += 1;
         }
-        let op1: i64 = try!(res);
-        let operation : Operation = try!(split[pos].parse().map_err(Error::from));
-        let next_op_pos = match operation {
-            Operation::Div|Operation::Mul => pos + 2,
-            _ => pos + 1,
-        };
-        let op2 : i64 = try!(split[next_op_pos].trim_right_matches('?').parse());
-        match operation {
-            Operation::Add => Ok(op1 + op2),
-            Operation::Sub => Ok(op1 - op2),
-            Operation::Div => Ok(op1 / op2),
-            Operation::Mul => Ok(op1 * op2),
+
+        let mut result = try!(res);
+
+        while pos < split.len() {
+            if let Ok(operation) = split[pos].parse().map_err(Error::from) {
+                let pos = match operation {
+                    Operation::Div | Operation::Mul => pos + 2,
+                    _ => pos + 1
+                };
+                let op : i64 = try!(split[pos].trim_right_matches('?').parse());
+                result = match operation {
+                    Operation::Add => result + op,
+                    Operation::Sub => result - op,
+                    Operation::Div => result / op,
+                    Operation::Mul => result * op,
+                };
+            }
+            pos += 1;
         }
+        Ok(result)
     }
 }
