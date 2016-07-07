@@ -87,14 +87,12 @@ fn multiple_divisions() {
 }
 
 #[test]
-#[ignore]
 fn unknown_operation() {
     let command = "What is 52 cubed?";
     assert!(WordProblem::new(command).answer().is_err());
 }
 
 #[test]
-#[ignore]
 fn non_math_question() {
     let command = "Who is the President of the United States?";
     assert!(WordProblem::new(command).answer().is_err());

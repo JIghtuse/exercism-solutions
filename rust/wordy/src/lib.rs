@@ -20,7 +20,7 @@ pub enum Operation {
     Add,
     Sub,
     Mul,
-    Div
+    Div,
 }
 
 use Operation::*;
@@ -56,19 +56,18 @@ impl WordProblem {
         let mut result = try!(res);
 
         while pos < split.len() {
-            if let Ok(operation) = split[pos].parse().map_err(Error::from) {
-                let pos = match operation {
-                    Operation::Div | Operation::Mul => pos + 2,
-                    _ => pos + 1
-                };
-                let op : i64 = try!(split[pos].trim_right_matches('?').parse());
-                result = match operation {
-                    Operation::Add => result + op,
-                    Operation::Sub => result - op,
-                    Operation::Div => result / op,
-                    Operation::Mul => result * op,
-                };
-            }
+            let operation = try!(split[pos].parse().map_err(Error::from));
+            pos = match operation {
+                Operation::Div | Operation::Mul => pos + 2,
+                _ => pos + 1,
+            };
+            let op: i64 = try!(split[pos].trim_right_matches('?').parse());
+            result = match operation {
+                Operation::Add => result + op,
+                Operation::Sub => result - op,
+                Operation::Div => result / op,
+                Operation::Mul => result * op,
+            };
             pos += 1;
         }
         Ok(result)
