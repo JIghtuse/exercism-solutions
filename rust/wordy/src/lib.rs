@@ -35,7 +35,6 @@ impl FromStr for Operation {
             "multiplied" => Ok(Mul),
             _ => Err(Error::InvalidCommand),
         }
-
     }
 }
 
@@ -44,31 +43,32 @@ impl WordProblem {
         WordProblem { command: command.to_string() }
     }
     pub fn answer(&self) -> Result<i64, Error> {
-        let split: Vec<&str> = self.command.split_whitespace().collect();
-        let mut pos = 0usize;
+        let mut split = self.command.split_whitespace();
 
-        let mut res = Err(Error::InvalidCommand);
-        while pos < split.len() && res.is_err() {
-            res = split[pos].parse::<i64>().map_err(Error::from);
-            pos += 1;
+        let mut first_op = Err(Error::InvalidCommand);
+        while let Some(word) = split.next() {
+            if let Ok(op) = word.parse::<i64>() {
+                first_op = Ok(op);
+                break;
+            }
         }
+        let mut result = try!(first_op);
 
-        let mut result = try!(res);
-
-        while pos < split.len() {
-            let operation = try!(split[pos].parse().map_err(Error::from));
-            pos = match operation {
-                Operation::Div | Operation::Mul => pos + 2,
-                _ => pos + 1,
+        while let Some(word) = split.next() {
+            let operation = try!(word.parse().map_err(Error::from));
+            let word = split.next();
+            let word = match operation {
+                Operation::Div | Operation::Mul => split.next(),
+                _ => word,
             };
-            let op: i64 = try!(split[pos].trim_right_matches('?').parse());
+            let word = try!(word.ok_or(Error::InvalidCommand));
+            let op: i64 = try!(word.trim_right_matches('?').parse());
             result = match operation {
                 Operation::Add => result + op,
                 Operation::Sub => result - op,
                 Operation::Div => result / op,
                 Operation::Mul => result * op,
             };
-            pos += 1;
         }
         Ok(result)
     }
