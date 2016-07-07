@@ -33,14 +33,12 @@ fn subtraction() {
 }
 
 #[test]
-#[ignore]
 fn multiplication() {
     let command = "What is -3 multiplied by 25?";
     assert_eq!(-75, WordProblem::new(command).answer().unwrap());
 }
 
 #[test]
-#[ignore]
 fn division() {
     let command = "What is 33 divided by -3?";
     assert_eq!(-11, WordProblem::new(command).answer().unwrap());
