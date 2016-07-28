@@ -18,7 +18,6 @@ fn test_good() {
 }
 
 #[test]
-#[ignore]
 fn test_ignore_bad_lines() {
     let input = "Allegoric Alaskians;Blithering Badgers;win\n".to_string() +
         "Devastating Donkeys_Courageous Californians;draw\n" +
