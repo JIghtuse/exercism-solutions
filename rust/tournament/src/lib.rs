@@ -1,6 +1,7 @@
 use std::str::FromStr;
 use std::collections::HashMap;
 use std::ops::Not;
+use std::cmp::Ordering;
 
 #[derive(Clone, Copy)]
 enum MatchResult {
@@ -93,7 +94,17 @@ fn gather_stats(competition_results: &str) -> HashMap<&str, Stats> {
 pub fn tally(competition_results: &str) -> String {
     let stats = gather_stats(competition_results);
     let mut stats: Vec<_> = stats.iter().collect();
-    stats.sort_by(|&(_, ref a), &(_, ref b)| b.points.cmp(&a.points));
+    stats.sort_by(|&(name_a, ref a), &(name_b, ref b)| {
+        match b.points.cmp(&a.points) {
+            Ordering::Equal => {
+                match b.won_matches.cmp(&a.won_matches) {
+                    Ordering::Equal => name_a.cmp(&name_b),
+                    other => other,
+                }
+            }
+            other => other,
+        }
+    });
 
     let mut output = format!("{:31}| MP |  W |  D |  L |  P", "Team");
     for (team, stat) in stats {

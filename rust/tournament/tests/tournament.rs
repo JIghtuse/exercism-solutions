@@ -40,7 +40,6 @@ fn test_ignore_bad_lines() {
 }
 
 #[test]
-#[ignore]
 fn test_incomplete_competition() {
     let input = "Allegoric Alaskians;Blithering Badgers;win\n".to_string() +
         "Devastating Donkeys;Allegoric Alaskians;win\n" +
