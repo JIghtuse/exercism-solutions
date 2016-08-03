@@ -43,7 +43,13 @@ impl Robot {
     }
 
     pub fn advance(self) -> Self {
-        unimplemented!()
+        let (x, y) = match self.direction {
+            Direction::North => (self.x, self.y + 1),
+            Direction::West => (self.x - 1, self.y),
+            Direction::South => (self.x, self.y - 1),
+            Direction::East => (self.x + 1, self.y),
+        };
+        Robot::new(x, y, self.direction)
     }
 
     #[allow(unused_variables)]
