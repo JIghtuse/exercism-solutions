@@ -32,7 +32,14 @@ impl Robot {
     }
 
     pub fn turn_left(self) -> Self {
-        unimplemented!()
+        let new_direction = match self.direction {
+            Direction::North => Direction::West,
+            Direction::West => Direction::South,
+            Direction::South => Direction::East,
+            Direction::East => Direction::North,
+        };
+
+        Robot::new(self.x, self.y, new_direction)
     }
 
     pub fn advance(self) -> Self {
