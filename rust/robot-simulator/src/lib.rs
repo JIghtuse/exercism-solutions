@@ -52,9 +52,17 @@ impl Robot {
         Robot::new(x, y, self.direction)
     }
 
-    #[allow(unused_variables)]
     pub fn instructions(self, instructions: &str) -> Self {
-        unimplemented!()
+        let mut clone = self;
+        for i in instructions.chars() {
+            clone = match i {
+                'A' => clone.advance(),
+                'L' => clone.turn_left(),
+                'R' => clone.turn_right(),
+                _ => panic!("unexpected input"),
+            };
+        }
+        clone
     }
 
     pub fn position(&self) -> (isize, isize) {
